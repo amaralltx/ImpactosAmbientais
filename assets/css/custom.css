@@ -2,6 +2,15 @@
     margin-bottom: 64px !important;
 }
 
+.main {
+    padding-top: 1.75em !important;
+    padding-bottom: 1.75em !important;
+}
+
+#nav {
+    padding-top: 0 !important;
+}
+
 .imgheader {
     height: 500px !important;
     width: 100vw !important;
@@ -15,6 +24,7 @@
     max-width: 100% !important;
     object-fit: cover;
     border-radius: 0 !important;
+    object-position: 50% 25%;
 }
 
 .pic02 {
@@ -71,4 +81,215 @@ h4,
 h5,
 h6 {
     font-weight: bold !important;
+}
+
+
+/* Padronização da largura do conteúdo principal em 1550px */
+/* Aplicação com maior especificidade para garantir override */
+body #wrapper,
+html body #wrapper,
+#wrapper {
+    width: 1550px !important;
+    max-width: calc(100% - 4em) !important;
+    margin: 0 auto !important;
+    overflow-x: visible !important;
+    box-sizing: border-box !important;
+}
+
+/* Garantir que o main content também respeite a largura */
+body #main,
+html body #main,
+#main {
+    width: 100% !important;
+    max-width: none !important;
+}
+
+/* Override específico para container se existir */
+.container {
+    width: 100% !important;
+    max-width: none !important;
+}
+
+/* Responsividade para telas menores */
+@media screen and (max-width: 1630px) {
+
+    body #wrapper,
+    html body #wrapper {
+        width: auto !important;
+        max-width: calc(100% - 4em) !important;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    body #wrapper,
+    html body #wrapper {
+        max-width: calc(100% - 2em) !important;
+    }
+}
+
+@media screen and (max-width: 360px) {
+
+    body #wrapper,
+    html body #wrapper {
+        max-width: 100% !important;
+    }
+}
+
+/* Força aplicação da largura 1550px em todas as páginas */
+/* Esta regra tem alta especificidade e deve sobrescrever qualquer conflito */
+html body div#wrapper,
+body div#wrapper,
+div#wrapper {
+    width: 1550px !important;
+    max-width: calc(100% - 4em) !important;
+}
+
+@media screen and (min-width: 1631px) {
+
+    html body div#wrapper,
+    body div#wrapper,
+    div#wrapper {
+        width: 1550px !important;
+    }
+}
+
+/* Ajustes específicos para o menu de navegação */
+/* Menu com largura de 1550px como o conteúdo principal */
+#nav {
+    width: 1550px !important;
+    max-width: calc(100% - 4em) !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+}
+
+#nav ul {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+#nav ul li {
+    flex: 0 1 auto !important;
+    margin: 0 1em !important;
+}
+
+/* Responsividade para o menu */
+@media screen and (max-width: 1630px) {
+    #nav {
+        width: auto !important;
+        max-width: calc(100% - 4em) !important;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #nav {
+        max-width: calc(100% - 2em) !important;
+    }
+
+    #nav ul li {
+        margin: 0 0.5em !important;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    #nav {
+        max-width: 100% !important;
+    }
+}
+
+/* Ajustes para o header se necessário */
+#header {
+    width: 100% !important;
+    max-width: none !important;
+}
+
+/* Garantir que elementos dentro do wrapper se comportem corretamente */
+#wrapper>* {
+    max-width: 100% !important;
+}
+
+/* ========== ESTILO MINIMALISTA PARA O MENU ========== */
+/* Remove efeitos de cor de fundo e adiciona linha minimalista */
+
+/* Reset dos estilos de fundo dos links */
+#nav ul li a,
+#nav ul li a:hover,
+#nav ul li a:active,
+#nav ul li a:focus {
+    background-color: transparent !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Configuração base dos links do menu */
+#nav ul li a {
+    position: relative !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    padding-bottom: 1em !important;
+    /* Aumentado para afastar o traço */
+    padding-top: 0.75em !important;
+    color: #6b7280 !important;
+    /* Cinza médio para fundo claro */
+}
+
+/* Linha minimalista - estado inicial (invisível) */
+#nav ul li a:after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: -0.15em !important;
+    /* Na base do elemento, abaixo do texto */
+    left: 50% !important;
+    width: 0 !important;
+    height: 2px !important;
+    background: linear-gradient(90deg, transparent, #374151, transparent) !important;
+    /* Cinza escuro */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    transform: translateX(-50%) !important;
+    border-radius: 2px !important;
+}
+
+/* Efeito hover - expande a linha suavemente */
+#nav ul li a:hover {
+    color: #111827 !important;
+    /* Cinza muito escuro no hover */
+}
+
+#nav ul li a:hover:after {
+    width: 70% !important;
+    background: linear-gradient(90deg, transparent, #111827, transparent) !important;
+    /* Cinza muito escuro */
+}
+
+/* Página atual - linha sempre visível com cor diferenciada */
+#nav ul li a.active:after {
+    width: 85% !important;
+    background: linear-gradient(90deg, transparent, #1f2937, transparent) !important;
+    /* Cinza bem escuro */
+    box-shadow: 0 0 8px rgba(31, 41, 55, 0.4) !important;
+    /* Sombra cinza escura */
+}
+
+/* Estilo do texto da página atual */
+#nav ul li a.active {
+    color: #1f2937 !important;
+    /* Cinza bem escuro para destaque */
+    font-weight: normal !important;
+    /* Removido o bold conforme solicitado */
+}
+
+/* Hover na página atual mantém o estilo especial */
+#nav ul li a.active:hover:after {
+    width: 90% !important;
+    box-shadow: 0 0 12px rgba(31, 41, 55, 0.6) !important;
+    /* Sombra mais intensa */
+}
+
+/* Remove qualquer outline padrão */
+#nav ul li a:focus {
+    outline: none !important;
 }
