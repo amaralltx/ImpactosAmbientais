@@ -48,7 +48,8 @@
 }
 
 .pic04 {
-    width: 100% !important;
+    width: 100%;
+    min-height: 300px !important;
     max-width: 100% !important;
     display: flex !important;
     justify-content: center;
