@@ -1,0 +1,344 @@
+<!DOCTYPE HTML>
+<!--
+	Stellar by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+    <title>🧠 Quiz - Impactos Ambientais</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" />
+    </noscript>
+</head>
+
+<body class="is-preload" x-data="quizData()">
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Header -->
+        <header id="header" class="alt">
+            <span class="logo"><img src="images/logo.png" alt="" /></span>
+            <h1>Quiz - Impactos Ambientais</h1>
+            <p>Teste seus conhecimentos — UTFPR Curitiba.</p>
+        </header>
+
+        <!-- Nav -->
+        <nav id="nav">
+            <ul>
+                <li><a href="index.html#intro">Introdução</a></li>
+                <li><a href="index.html#first">Ciclo Industrial</a></li>
+                <li><a href="index.html#second">Matéria-Prima</a></li>
+                <li><a href="index.html#third">Impactos</a></li>
+                <li><a href="index.html#fourth">Boas Práticas</a></li>
+                <li><a href="index.html#fifth">Engenharia</a></li>
+                <li><a href="notes.html">Anotações</a></li>
+                <li><a href="quiz.html" class="active">Quiz</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main -->
+        <div id="main">
+
+            <!-- Quiz Start Screen -->
+            <section id="quiz-start" class="main" x-show="!quizStarted && !quizCompleted && !showingQuizHistory">
+                <div class="spotlight">
+                    <div class="content">
+                        <header class="major">
+                            <h2>🧠 Quiz Interativo</h2>
+                        </header>
+                        <p>Teste seus conhecimentos sobre impactos ambientais de processos industriais!
+                            Responda às questões e avalie sua compreensão dos conceitos apresentados.</p>
+
+                        <div class="quiz-info"
+                            style="display: flex; justify-content: center; gap: 30px; margin: 30px 0;">
+                            <div style="text-align: center;">
+                                <span style="display: block; font-size: 2em; font-weight: bold; color: #18bfef;"
+                                    x-text="quizQuestions.length"></span>
+                                <span style="font-size: 0.9em;">Questões</span>
+                            </div>
+                            <div style="text-align: center;" x-show="hasQuizHistory()">
+                                <span style="display: block; font-size: 2em; font-weight: bold; color: #18bfef;"
+                                    x-text="getQuizAttempts()"></span>
+                                <span style="font-size: 0.9em;">Tentativas</span>
+                            </div>
+                            <div style="text-align: center;" x-show="hasQuizHistory()">
+                                <span style="display: block; font-size: 2em; font-weight: bold; color: #18bfef;"
+                                    x-text="getBestScore() + '%'"></span>
+                                <span style="font-size: 0.9em;">Melhor Score</span>
+                            </div>
+                        </div>
+
+                        <!-- Quiz Settings -->
+                        <div class="quiz-settings"
+                            style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                            <h3>⚙️ Configurações</h3>
+                            <div
+                                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                                <label style="display: flex; align-items: center; gap: 10px;">
+                                    <input type="checkbox" x-model="quizSettings.randomOrder">
+                                    <span>🔀 Ordem Aleatória</span>
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 10px;">
+                                    <input type="checkbox" x-model="quizSettings.showFeedback">
+                                    <span>💬 Feedback Imediato</span>
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 10px;">
+                                    <input type="checkbox" x-model="quizSettings.timerMode">
+                                    <span>⏰ Modo Timer</span>
+                                </label>
+                            </div>
+
+                            <div x-show="quizSettings.timerMode" style="margin-top: 15px;">
+                                <label>Tempo por questão:</label>
+                                <select x-model="questionTimeLimit" style="margin-left: 10px; padding: 5px;">
+                                    <option value="30">30 segundos</option>
+                                    <option value="60">60 segundos</option>
+                                    <option value="90">90 segundos</option>
+                                    <option value="120">120 segundos</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <ul class="actions">
+                            <li><a href="#" @click="startQuiz()" class="button primary icon solid fa-play">🚀 Iniciar
+                                    Quiz</a></li>
+                            <li><a href="#" @click="showingQuizHistory = true" x-show="hasQuizHistory()"
+                                    class="button">📊 Ver Histórico</a></li>
+                        </ul>
+                    </div>
+                    <span class="image"><img src="images/pic01.jpg" alt="" /></span>
+                </div>
+            </section>
+
+            <!-- Quiz Question Screen -->
+            <section id="quiz-question" class="main" x-show="quizStarted && !quizCompleted">
+                <header class="major">
+                    <h2 x-text="'Questão ' + (currentQuestion + 1) + ' de ' + quizQuestions.length"></h2>
+                    <div x-show="quizSettings.timerMode && questionTimeLeft > 0"
+                        style="color: #e74c3c; font-size: 1.2em;">
+                        ⏰ <span x-text="questionTimeLeft + 's'"></span>
+                    </div>
+                </header>
+
+                <div class="question-container" x-show="quizQuestions[currentQuestion]">
+                    <div style="margin-bottom: 20px;">
+                        <span
+                            style="background: #18bfef; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.8em;"
+                            x-text="quizQuestions[currentQuestion]?.topic"></span>
+                        <span
+                            style="background: #666; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.8em; margin-left: 10px;"
+                            x-text="quizQuestions[currentQuestion]?.difficulty"></span>
+                    </div>
+
+                    <h3 x-text="quizQuestions[currentQuestion]?.question"
+                        style="margin-bottom: 30px; font-size: 1.3em;"></h3>
+
+                    <div class="question-options" style="margin-bottom: 30px;">
+                        <template x-for="(option, index) in quizQuestions[currentQuestion]?.options" :key="index">
+                            <button class="button" :class="{
+										'primary': answers[currentQuestion] === index && !questionAnswered,
+										'': answers[currentQuestion] !== index || questionAnswered
+									}" :style="{
+										'background-color': questionAnswered && index === quizQuestions[currentQuestion].correctAnswer ? '#27ae60' : 
+														   (questionAnswered && answers[currentQuestion] === index && index !== quizQuestions[currentQuestion].correctAnswer ? '#e74c3c' : ''),
+										'color': questionAnswered && (index === quizQuestions[currentQuestion].correctAnswer || (answers[currentQuestion] === index && index !== quizQuestions[currentQuestion].correctAnswer)) ? 'white' : '',
+										'display': 'block',
+										'width': '100%',
+										'margin-bottom': '10px',
+										'text-align': 'left'
+									}" @click="selectAnswer(index)" :disabled="questionAnswered"
+                                x-text="String.fromCharCode(65 + index) + ') ' + option">
+                            </button>
+                        </template>
+                    </div>
+
+                    <!-- Feedback -->
+                    <div x-show="questionAnswered && quizSettings.showFeedback"
+                        style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+                        <div style="margin-bottom: 10px;">
+                            <span x-show="isAnswerCorrect(currentQuestion)" style="color: #27ae60; font-weight: bold;">✅
+                                Correto!</span>
+                            <span x-show="!isAnswerCorrect(currentQuestion)"
+                                style="color: #e74c3c; font-weight: bold;">❌ Incorreto!</span>
+                        </div>
+                        <div x-text="quizQuestions[currentQuestion]?.explanation" style="line-height: 1.6;"></div>
+                    </div>
+
+                    <!-- Hint System -->
+                    <div x-show="!questionAnswered && !hintUsed[currentQuestion]" style="margin-bottom: 20px;">
+                        <button class="button small" @click="showHint()">💡 Dica</button>
+                    </div>
+
+                    <div x-show="hintUsed[currentQuestion]"
+                        style="background: #fff3cd; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                        <div><strong>💡 Dica:</strong> A resposta está relacionada aos conceitos apresentados no slide
+                            correspondente.</div>
+                    </div>
+                </div>
+
+                <ul class="actions">
+                    <li><a href="#" @click="skipQuestion()" x-show="!questionAnswered" class="button">⏭️ Pular</a></li>
+                    <li><a href="#" @click="nextQuestion()" x-show="canProceedToNext()" class="button primary"
+                            x-text="currentQuestion === quizQuestions.length - 1 ? 'Finalizar' : 'Próxima'"></a></li>
+                </ul>
+            </section>
+
+            <!-- Quiz Results Screen -->
+            <section id="quiz-results" class="main" x-show="quizCompleted">
+                <div class="spotlight">
+                    <div class="content">
+                        <header class="major">
+                            <h2 x-text="getScoreEmoji() + ' Quiz Concluído!'"></h2>
+                        </header>
+
+                        <div style="text-align: center; margin: 30px 0;">
+                            <div style="font-size: 3em; font-weight: bold; color: #18bfef;"
+                                x-text="quizScore + '/' + quizQuestions.length"></div>
+                            <div style="font-size: 2em; margin: 10px 0;"
+                                x-text="Math.round(quizScore / quizQuestions.length * 100) + '%'"></div>
+                            <div style="font-size: 1.5em; font-weight: bold;" x-text="'Conceito: ' + getScoreGrade()">
+                            </div>
+                        </div>
+
+                        <div class="results-details"
+                            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 30px 0;">
+                            <div style="text-align: center;">
+                                <div style="font-weight: bold;">✅ Corretas:</div>
+                                <div x-text="quizScore + '/' + quizQuestions.length"></div>
+                            </div>
+                            <div style="text-align: center;" x-show="getSkippedCount() > 0">
+                                <div style="font-weight: bold;">⏭️ Puladas:</div>
+                                <div x-text="getSkippedCount()"></div>
+                            </div>
+                            <div style="text-align: center;" x-show="hasQuizHistory()">
+                                <div style="font-weight: bold;">🏆 Melhor:</div>
+                                <div x-text="getBestScore() + '%'"></div>
+                            </div>
+                            <div style="text-align: center;" x-show="hasQuizHistory()">
+                                <div style="font-weight: bold;">📊 Média:</div>
+                                <div x-text="getAverageScore() + '%'"></div>
+                            </div>
+                        </div>
+
+                        <ul class="actions">
+                            <li><a href="#" @click="restartQuiz()" class="button primary">🔄 Tentar Novamente</a></li>
+                            <li><a href="#" @click="reviewAnswers()" class="button">🔍 Revisar Respostas</a></li>
+                            <li><a href="index.html" class="button">📊 Ver Slides</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quiz History Screen -->
+            <section id="quiz-history" class="main" x-show="showingQuizHistory">
+                <header class="major">
+                    <h2>📊 Histórico do Quiz</h2>
+                </header>
+
+                <div class="history-stats" style="display: flex; justify-content: center; gap: 40px; margin: 30px 0;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 2em; font-weight: bold; color: #18bfef;" x-text="getQuizAttempts()">
+                        </div>
+                        <div>Tentativas</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2em; font-weight: bold; color: #18bfef;" x-text="getBestScore() + '%'">
+                        </div>
+                        <div>Melhor Score</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2em; font-weight: bold; color: #18bfef;"
+                            x-text="getAverageScore() + '%'"></div>
+                        <div>Score Médio</div>
+                    </div>
+                </div>
+
+                <div class="history-list">
+                    <template x-for="(attempt, index) in quizHistory.slice().reverse()" :key="index">
+                        <div
+                            style="border: 1px solid #ddd; padding: 20px; margin-bottom: 15px; border-radius: 5px; display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <div style="font-weight: bold;" x-text="'Tentativa #' + (quizHistory.length - index)">
+                                </div>
+                                <div x-text="formatDate(attempt.timestamp)" style="font-size: 0.9em; color: #666;">
+                                </div>
+                            </div>
+                            <div style="text-align: right;">
+                                <div style="font-size: 1.2em; font-weight: bold;"
+                                    x-text="attempt.score + '/' + attempt.total + ' (' + Math.round(attempt.score/attempt.total*100) + '%)'">
+                                </div>
+                                <div x-text="'Conceito: ' + getGradeForScore(attempt.score/attempt.total)"
+                                    style="font-size: 0.9em;"></div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+
+                <ul class="actions">
+                    <li><a href="#" @click="showingQuizHistory = false" class="button">← Voltar</a></li>
+                    <li><a href="#" @click="clearQuizHistory()" x-show="hasQuizHistory()" class="button"
+                            style="background-color: #e74c3c;">🗑️ Limpar Histórico</a></li>
+                </ul>
+            </section>
+
+        </div>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <section>
+                <h2>Quiz Interativo</h2>
+                <p>Teste e aprofunde seus conhecimentos sobre impactos ambientais de processos industriais.
+                    Use as configurações para personalizar sua experiência de aprendizado.</p>
+                <ul class="actions">
+                    <li><a href="index.html" class="button">Voltar aos Slides</a></li>
+                </ul>
+            </section>
+            <section>
+                <h2>Informações de Contato</h2>
+                <dl class="alt">
+                    <dt>Instituição</dt>
+                    <dd>UTFPR Curitiba &bull; Ciências Ambientais</dd>
+                    <dt>Telefone</dt>
+                    <dd>(41) 3279-4500</dd>
+                    <dt>Email</dt>
+                    <dd><a href="#">environmental@utfpr.edu.br</a></dd>
+                </dl>
+                <ul class="icons">
+                    <li><a href="#" class="icon brands fa-twitter alt"><span class="label">Twitter</span></a></li>
+                    <li><a href="#" class="icon brands fa-facebook-f alt"><span class="label">Facebook</span></a></li>
+                    <li><a href="#" class="icon brands fa-instagram alt"><span class="label">Instagram</span></a></li>
+                    <li><a href="#" class="icon brands fa-github alt"><span class="label">GitHub</span></a></li>
+                    <li><a href="#" class="icon brands fa-linkedin alt"><span class="label">LinkedIn</span></a></li>
+                </ul>
+            </section>
+            <p class="copyright">&copy; UTFPR Curitiba. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <!-- Quiz functionality -->
+    <script src="lib/localdb.min.js"></script>
+    <script src="js/quiz-data.js"></script>
+    <script src="js/quiz.js"></script>
+
+    <!-- Alpine.js must load last -->
+    <script src="lib/alpine.min.js"></script>
+
+</body>
+
+</html>

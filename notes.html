@@ -1,0 +1,231 @@
+<!DOCTYPE HTML>
+<!--
+	Stellar by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+    <title>📝 Anotações - Impactos Ambientais</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" />
+    </noscript>
+</head>
+
+<body class="is-preload" x-data="notesData()">
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Header -->
+        <header id="header" class="alt">
+            <span class="logo"><img src="images/logo.png" alt="" /></span>
+            <h1>Anotações - Impactos Ambientais</h1>
+            <p>Sistema de anotações — UTFPR Curitiba.</p>
+        </header>
+
+        <!-- Nav -->
+        <nav id="nav">
+            <ul>
+                <li><a href="index.html#intro">Introdução</a></li>
+                <li><a href="index.html#first">Ciclo Industrial</a></li>
+                <li><a href="index.html#second">Matéria-Prima</a></li>
+                <li><a href="index.html#third">Impactos</a></li>
+                <li><a href="index.html#fourth">Boas Práticas</a></li>
+                <li><a href="index.html#fifth">Engenharia</a></li>
+                <li><a href="notes.html" class="active">Anotações</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main -->
+        <div id="main">
+
+            <!-- Notes Section -->
+            <section id="notes" class="main">
+                <div class="spotlight">
+                    <div class="content">
+                        <header class="major">
+                            <h2>📝 Suas Anotações</h2>
+                        </header>
+
+                        <!-- Notes Stats -->
+                        <div class="notes-stats" style="display: flex; gap: 20px; margin-bottom: 20px;">
+                            <div class="stat-item" style="text-align: center;">
+                                <span class="stat-number"
+                                    style="display: block; font-size: 2em; font-weight: bold; color: #18bfef;"
+                                    x-text="getUniqueSlides().length"></span>
+                                <span class="stat-label" style="font-size: 0.9em;">Slides com Notas</span>
+                            </div>
+                            <div class="stat-item" style="text-align: center;">
+                                <span class="stat-number"
+                                    style="display: block; font-size: 2em; font-weight: bold; color: #18bfef;"
+                                    x-text="getTotalWords()"></span>
+                                <span class="stat-label" style="font-size: 0.9em;">Total de Palavras</span>
+                            </div>
+                            <div class="stat-item" style="text-align: center;">
+                                <span class="stat-number"
+                                    style="display: block; font-size: 2em; font-weight: bold; color: #18bfef;"
+                                    x-text="getLastNoteDate()"></span>
+                                <span class="stat-label" style="font-size: 0.9em;">Última Nota</span>
+                            </div>
+                        </div>
+
+                        <!-- Search and Controls -->
+                        <div class="notes-controls" style="margin-bottom: 30px;">
+                            <div style="display: flex; gap: 15px; align-items: center; margin-bottom: 15px;">
+                                <input type="text" placeholder="🔍 Buscar nas anotações..." x-model="notesSearchTerm"
+                                    @input="filterNotes()" style="flex: 1; padding: 10px;">
+                                <select x-model="notesSortBy" @change="filterNotes()" style="padding: 10px;">
+                                    <option value="date">📅 Data (Mais Recente)</option>
+                                    <option value="slide">📊 Slide</option>
+                                    <option value="length">📝 Tamanho</option>
+                                </select>
+                            </div>
+
+                            <div style="display: flex; gap: 10px;">
+                                <button class="button small" @click="exportNotes()">📤 Exportar</button>
+                                <button class="button small" @click="importNotes()">📥 Importar</button>
+                                <button class="button small" @click="clearAllNotes()" x-show="notes.length > 0"
+                                    style="background-color: #e74c3c;">🗑️ Limpar Tudo</button>
+                            </div>
+                        </div>
+
+                        <!-- Notes List -->
+                        <div class="notes-list">
+                            <!-- No notes message -->
+                            <div x-show="filteredNotes.length === 0" style="text-align: center; padding: 40px;">
+                                <div style="font-size: 4em; margin-bottom: 20px;">📝</div>
+                                <h3>Nenhuma anotação encontrada</h3>
+                                <p x-show="notesSearchTerm.trim() !== ''">Tente ajustar os filtros de busca.</p>
+                                <p x-show="notesSearchTerm.trim() === ''">Suas anotações aparecerão aqui. Vá para a
+                                    página inicial e comece a anotar!</p>
+                                <ul class="actions">
+                                    <li><a href="index.html" class="button primary">📊 Ir para Slides</a></li>
+                                </ul>
+                            </div>
+
+                            <!-- Notes items -->
+                            <template x-for="note in filteredNotes" :key="note.id">
+                                <div class="note-item"
+                                    style="border: 1px solid #ddd; padding: 20px; margin-bottom: 15px; border-radius: 5px;">
+                                    <div class="note-header"
+                                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                                        <div>
+                                            <h4 x-text="getSlideTitle(note.slideId)" style="margin: 0; color: #18bfef;">
+                                            </h4>
+                                            <div style="font-size: 0.8em; color: #666;">
+                                                <span x-text="'Slide ' + (note.slideId + 1)"></span> •
+                                                <span x-text="formatDate(note.timestamp)"></span> •
+                                                <span x-text="getWordCount(note.content) + ' palavras'"></span>
+                                            </div>
+                                        </div>
+                                        <div style="display: flex; gap: 5px;">
+                                            <button class="button small" @click="editNote(note)"
+                                                title="Editar">✏️</button>
+                                            <button class="button small" @click="duplicateNote(note)"
+                                                title="Duplicar">📋</button>
+                                            <button class="button small" @click="deleteNote(note.id)" title="Excluir"
+                                                style="background-color: #e74c3c;">🗑️</button>
+                                        </div>
+                                    </div>
+                                    <div class="note-content" x-text="note.content" style="line-height: 1.6;"></div>
+                                </div>
+                            </template>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- Edit Note Modal -->
+            <div x-show="editingNote"
+                style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; display: flex; align-items: center; justify-content: center;"
+                @click="cancelEdit()">
+                <div style="background: white; padding: 30px; border-radius: 10px; width: 90%; max-width: 600px; max-height: 80vh; overflow-y: auto;"
+                    @click.stop>
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h3 style="margin: 0;">✏️ Editar Anotação</h3>
+                        <button @click="cancelEdit()"
+                            style="background: none; border: none; font-size: 1.5em; cursor: pointer;">×</button>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label><strong>Slide:</strong></label>
+                        <span x-show="editingNote"
+                            x-text="editingNote ? getSlideTitle(editingNote.slideId) : ''"></span>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label for="edit-note-content"><strong>Conteúdo:</strong></label>
+                        <textarea id="edit-note-content" x-model="editingNoteContent" rows="8"
+                            placeholder="Digite sua anotação..."
+                            style="width: 100%; padding: 10px; margin-top: 5px;"></textarea>
+                    </div>
+                    <div style="margin-bottom: 20px; font-size: 0.9em; color: #666;">
+                        <span x-text="getWordCount(editingNoteContent) + ' palavras'"></span>
+                    </div>
+                    <div style="display: flex; gap: 10px; justify-content: flex-end;">
+                        <button class="button" @click="cancelEdit()">Cancelar</button>
+                        <button class="button primary" @click="saveEditedNote()">Salvar</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <section>
+                <h2>Sistema de Anotações</h2>
+                <p>Organize suas anotações sobre impactos ambientais de processos industriais. Busque, filtre e
+                    exporte suas notas para maximizar seu aprendizado.</p>
+                <ul class="actions">
+                    <li><a href="index.html" class="button">Voltar aos Slides</a></li>
+                </ul>
+            </section>
+            <section>
+                <h2>Informações de Contato</h2>
+                <dl class="alt">
+                    <dt>Instituição</dt>
+                    <dd>UTFPR Curitiba &bull; Ciências Ambientais</dd>
+                    <dt>Telefone</dt>
+                    <dd>(41) 3279-4500</dd>
+                    <dt>Email</dt>
+                    <dd><a href="#">environmental@utfpr.edu.br</a></dd>
+                </dl>
+                <ul class="icons">
+                    <li><a href="#" class="icon brands fa-twitter alt"><span class="label">Twitter</span></a></li>
+                    <li><a href="#" class="icon brands fa-facebook-f alt"><span class="label">Facebook</span></a></li>
+                    <li><a href="#" class="icon brands fa-instagram alt"><span class="label">Instagram</span></a></li>
+                    <li><a href="#" class="icon brands fa-github alt"><span class="label">GitHub</span></a></li>
+                    <li><a href="#" class="icon brands fa-linkedin alt"><span class="label">LinkedIn</span></a></li>
+                </ul>
+            </section>
+            <p class="copyright">&copy; UTFPR Curitiba. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <!-- Notes functionality -->
+    <script src="lib/localdb.min.js"></script>
+    <script src="js/notes.js"></script>
+
+    <!-- Alpine.js must load last -->
+    <script src="lib/alpine.min.js"></script>
+
+</body>
+
+</html>
