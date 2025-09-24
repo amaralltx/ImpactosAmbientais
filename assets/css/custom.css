@@ -274,11 +274,11 @@ div#wrapper {
     left: 50% !important;
     width: 0 !important;
     height: 2px !important;
-    background: linear-gradient(90deg, transparent, #374151, transparent) !important;
-    /* Cinza escuro */
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    background: #374151 !important;
+    /* Cor sólida sem gradiente */
+    transition: width 0.3s ease !important;
+    /* Transição mais simples */
     transform: translateX(-50%) !important;
-    border-radius: 2px !important;
     pointer-events: none !important;
     /* Evita interferência na área clicável */
 }
@@ -290,18 +290,16 @@ div#wrapper {
 }
 
 #nav ul li a:hover:after {
-    width: 70% !important;
-    background: linear-gradient(90deg, transparent, #111827, transparent) !important;
-    /* Cinza muito escuro */
+    width: 60% !important;
+    background: #111827 !important;
+    /* Cor sólida minimalista */
 }
 
 /* Página atual - linha sempre visível com cor diferenciada */
 #nav ul li a.active:after {
-    width: 85% !important;
-    background: linear-gradient(90deg, transparent, #1f2937, transparent) !important;
-    /* Cinza bem escuro */
-    box-shadow: 0 0 8px rgba(31, 41, 55, 0.4) !important;
-    /* Sombra cinza escura */
+    width: 70% !important;
+    background: #1f2937 !important;
+    /* Cor sólida minimalista */
 }
 
 /* Estilo do texto da página atual */
@@ -314,9 +312,8 @@ div#wrapper {
 
 /* Hover na página atual mantém o estilo especial */
 #nav ul li a.active:hover:after {
-    width: 90% !important;
-    box-shadow: 0 0 12px rgba(31, 41, 55, 0.6) !important;
-    /* Sombra mais intensa */
+    width: 80% !important;
+    /* Apenas expande a linha, sem efeitos */
 }
 
 /* Remove qualquer outline padrão */
