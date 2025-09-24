@@ -28,6 +28,10 @@
     object-position: 50% 25%;
 }
 
+.major h2 {
+    margin-top: 1em;
+}
+
 .pic02 {
     height: 300px !important;
     max-height: 300px !important;
@@ -320,4 +324,264 @@ div#wrapper {
 /* Remove qualquer outline padrão */
 #nav ul li a:focus {
     outline: none !important;
+}
+
+/* ========== ESTILOS DO QUIZ ========== */
+/* Opções de resposta do quiz */
+.quiz-option {
+    display: block !important;
+    width: 100% !important;
+    padding: 1em !important;
+    margin: 0.5em 0 !important;
+    background-color: #f8f9fa !important;
+    border: 2px solid #e9ecef !important;
+    border-radius: 8px !important;
+    color: #495057 !important;
+    text-align: left !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    font-size: 1em !important;
+    line-height: 1.4 !important;
+}
+
+.quiz-option:hover {
+    background-color: #e9ecef !important;
+    border-color: #6c757d !important;
+    transform: translateY(-2px) !important;
+}
+
+/* Resposta correta */
+.correct-answer {
+    background-color: #d4edda !important;
+    border-color: #28a745 !important;
+    color: #155724 !important;
+}
+
+/* Resposta incorreta */
+.wrong-answer {
+    background-color: #f8d7da !important;
+    border-color: #dc3545 !important;
+    color: #721c24 !important;
+}
+
+/* Resposta desabilitada */
+.disabled-answer {
+    background-color: #f8f9fa !important;
+    border-color: #dee2e6 !important;
+    color: #6c757d !important;
+    cursor: not-allowed !important;
+}
+
+/* Contêiner de estatísticas do quiz */
+.quiz-stats {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+    gap: 1em !important;
+    margin: 2em 0 !important;
+}
+
+.quiz-stat-item {
+    background-color: #f8f9fa !important;
+    padding: 1.5em !important;
+    border-radius: 8px !important;
+    text-align: center !important;
+    border-left: 4px solid #007bff !important;
+}
+
+.quiz-stat-number {
+    display: block !important;
+    font-size: 2em !important;
+    font-weight: bold !important;
+    color: #007bff !important;
+    margin-bottom: 0.5em !important;
+}
+
+.quiz-stat-label {
+    color: #6c757d !important;
+    font-size: 0.9em !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+}
+
+/* Progresso do quiz */
+.quiz-progress {
+    background-color: #e9ecef !important;
+    border-radius: 10px !important;
+    height: 8px !important;
+    margin: 1em 0 !important;
+    overflow: hidden !important;
+}
+
+.quiz-progress-bar {
+    height: 100% !important;
+    background-color: #007bff !important;
+    border-radius: 10px !important;
+    transition: width 0.3s ease !important;
+}
+
+/* Histórico do quiz */
+.quiz-history-item {
+    background-color: #f8f9fa !important;
+    padding: 1em !important;
+    margin: 1em 0 !important;
+    border-radius: 8px !important;
+    border-left: 4px solid #007bff !important;
+}
+
+.quiz-history-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-bottom: 0.5em !important;
+}
+
+.quiz-history-score {
+    font-size: 1.2em !important;
+    font-weight: bold !important;
+    color: #007bff !important;
+}
+
+.quiz-history-date {
+    color: #6c757d !important;
+    font-size: 0.9em !important;
+}
+
+/* Explicação da resposta */
+.quiz-explanation {
+    margin-top: 1em !important;
+    padding: 1em !important;
+    background-color: #e7f3ff !important;
+    border-left: 4px solid #007bff !important;
+    border-radius: 4px !important;
+    color: #004085 !important;
+}
+
+/* ========== CONFIGURAÇÕES ESPECÍFICAS PARA PÁGINA DE QUIZ ========== */
+/* Diminuir significativamente o header apenas na página do quiz */
+body.quiz-page #header {
+    min-height: auto !important;
+    height: auto !important;
+    padding: 1rem 0 0.5rem 0 !important;
+}
+
+body.quiz-page #header .logo img {
+    max-width: 60px !important;
+    max-height: 60px !important;
+}
+
+body.quiz-page #header h1 {
+    font-size: 1.5rem !important;
+    margin: 0.25rem 0 0.125rem 0 !important;
+}
+
+body.quiz-page #header p {
+    font-size: 0.8rem !important;
+    margin: 0 0 0.5rem 0 !important;
+}
+
+/* Ajustar navegação para ficar mais compacta */
+body.quiz-page #nav {
+    margin-top: -0.5rem !important;
+    padding: 0.5rem 0 !important;
+    width: 1550px !important;
+    max-width: calc(100% - 4em) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+body.quiz-page #nav ul {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: 2.5em !important;
+}
+
+/* Garantir que o main comece logo após o nav */
+body.quiz-page #main {
+    padding-top: 2.5rem !important;
+    min-height: calc(100vh - 200px) !important;
+}
+
+/* Reduzir espaçamento das seções do quiz */
+body.quiz-page #main .main {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+    max-height: calc(100vh - 250px) !important;
+    overflow-y: auto !important;
+}
+
+body.quiz-page #main .main:first-child {
+    padding-top: 0.25rem !important;
+}
+
+/* Otimizar altura da tela inicial do quiz */
+body.quiz-page .spotlight {
+    min-height: auto !important;
+    padding: 1rem 0 !important;
+}
+
+body.quiz-page .spotlight .content {
+    padding: 1rem !important;
+}
+
+/* Reduzir margens dos elementos do quiz */
+body.quiz-page .major {
+    margin-bottom: 1rem !important;
+}
+
+body.quiz-page p {
+    margin-bottom: 1rem !important;
+}
+
+/* Centralizar botões de ação no quiz */
+body.quiz-page ul.actions {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    margin-top: 2rem !important;
+}
+
+body.quiz-page ul.actions li {
+    margin: 0 !important;
+}
+
+/* Responsividade para o quiz */
+@media screen and (max-width: 768px) {
+    .quiz-stats {
+        grid-template-columns: 1fr !important;
+    }
+
+    .quiz-history-header {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+
+    .quiz-option {
+        padding: 0.8em !important;
+        font-size: 0.9em !important;
+    }
+
+    /* Header ainda menor em mobile */
+    body.quiz-page #header {
+        padding: 1rem 0 0.5rem 0 !important;
+    }
+
+    body.quiz-page #header .logo img {
+        max-width: 60px !important;
+        max-height: 60px !important;
+    }
+
+    body.quiz-page #header h1 {
+        font-size: 1.5rem !important;
+    }
+
+    /* Menu em mobile */
+    body.quiz-page #nav {
+        max-width: calc(100% - 2em) !important;
+    }
 }
