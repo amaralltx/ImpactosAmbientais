@@ -4,21 +4,59 @@
     let titles = [];
     let isScrolling = false;
 
-    // Initialize titles
+    // Initialize titles - all navigable elements
     function initTitles() {
         titles = [];
 
-        // Get all h1, h2, h3 headings in order
-        const allHeadings = document.querySelectorAll('h1, h2, h3');
+        // Get all sections and headings in document order
+        const allElements = document.querySelectorAll('section[id], h1, h2, h3');
 
-        allHeadings.forEach(heading => {
-            // Only include visible headings with content
-            if (heading.offsetHeight > 0 && heading.textContent.trim()) {
-                titles.push(heading);
+        allElements.forEach(element => {
+            // Only include visible elements with content
+            if (element.offsetHeight > 0) {
+                // For sections, use the section element or its main heading
+                if (element.tagName === 'SECTION') {
+                    const heading = element.querySelector('h1, h2') || element;
+                    titles.push(heading);
+                }
+                // For headings, include if they have meaningful content
+                else if (element.textContent.trim()) {
+                    titles.push(element);
+                }
             }
         });
 
-        console.log('Found titles:', titles.length, titles.map(t => `${t.tagName}: ${t.textContent.trim()}`));
+        // Remove duplicates and sort by position
+        titles = titles.filter((element, index, arr) => {
+            return arr.findIndex(el => el.offsetTop === element.offsetTop) === index;
+        }).sort((a, b) => a.offsetTop - b.offsetTop);
+
+        console.log('Found navigable elements:', titles.length, titles.map(t => `${t.tagName}: ${t.textContent?.trim() || t.id}`));
+    }
+
+    // Check if element is significantly visible in viewport
+    function isElementSignificantlyVisible(element) {
+        const rect = element.getBoundingClientRect();
+        const viewportHeight = window.innerHeight;
+
+        // Element is significantly visible if it's well within viewport
+        // (not just peeking at edges)
+        const elementHeight = rect.bottom - rect.top;
+        const visibleHeight = Math.min(rect.bottom, viewportHeight) - Math.max(rect.top, 0);
+
+        return rect.top >= -50 && rect.top < viewportHeight * 0.7 &&
+            visibleHeight > elementHeight * 0.3; // At least 30% visible
+    }
+
+    // Check if two elements are close enough to be considered "side by side"
+    function areElementsClose(element1, element2) {
+        const rect1 = element1.getBoundingClientRect();
+        const rect2 = element2.getBoundingClientRect();
+        const viewportHeight = window.innerHeight;
+
+        // Elements are close if they would appear on screen together
+        const distance = Math.abs(rect2.top - rect1.top);
+        return distance < viewportHeight * 0.8; // Less than 80% of viewport height apart
     }
 
     // Scroll to title
@@ -29,10 +67,11 @@
         currentIndex = index;
 
         const target = titles[index];
-        const offset = 100;
+        const offset = 100; // Good offset for visibility
         const targetY = target.offsetTop - offset;
 
-        console.log(`Scrolling to: "${target.textContent.trim()}" at position ${targetY}`);
+        const targetText = target.textContent?.trim() || target.id || 'Section';
+        console.log(`Scrolling to: "${targetText}" at position ${targetY}`);
 
         window.scrollTo({
             top: Math.max(0, targetY),
@@ -48,11 +87,17 @@
     function getCurrentIndex() {
         if (titles.length === 0) return 0;
 
-        const scrollY = window.scrollY + 150;
+        const scrollY = window.scrollY;
+        const viewportHeight = window.innerHeight;
+        const viewportCenter = scrollY + (viewportHeight / 2);
 
-        // Find the closest title above current scroll position
+        // Find the section that's currently most visible in viewport
         for (let i = titles.length - 1; i >= 0; i--) {
-            if (titles[i].offsetTop <= scrollY) {
+            const element = titles[i];
+            const elementTop = element.offsetTop;
+
+            // Check if this section is above or at the center of viewport
+            if (elementTop <= viewportCenter) {
                 return i;
             }
         }
@@ -67,7 +112,7 @@
         }
     }
 
-    // Keyboard navigation
+    // Keyboard navigation with intelligent section detection
     function handleKeydown(e) {
         if (titles.length === 0) return;
 
@@ -77,17 +122,47 @@
         switch (e.key) {
             case 'ArrowDown':
                 e.preventDefault();
-                if (currentIndex < titles.length - 1) {
-                    newIndex = currentIndex + 1;
-                    shouldScroll = true;
+                // Find next section that's not close to current one
+                for (let i = currentIndex + 1; i < titles.length; i++) {
+                    const currentElement = titles[currentIndex];
+                    const nextElement = titles[i];
+
+                    // Skip if elements are too close (side by side)
+                    if (!areElementsClose(currentElement, nextElement) ||
+                        !isElementSignificantlyVisible(nextElement)) {
+                        newIndex = i;
+                        shouldScroll = true;
+                        break;
+                    }
+                    // If we're at the last few elements, just go to next
+                    else if (i === titles.length - 1 || i > currentIndex + 2) {
+                        newIndex = i;
+                        shouldScroll = true;
+                        break;
+                    }
                 }
                 break;
 
             case 'ArrowUp':
                 e.preventDefault();
-                if (currentIndex > 0) {
-                    newIndex = currentIndex - 1;
-                    shouldScroll = true;
+                // Find previous section that's not close to current one
+                for (let i = currentIndex - 1; i >= 0; i--) {
+                    const currentElement = titles[currentIndex];
+                    const prevElement = titles[i];
+
+                    // Skip if elements are too close (side by side)
+                    if (!areElementsClose(currentElement, prevElement) ||
+                        !isElementSignificantlyVisible(prevElement)) {
+                        newIndex = i;
+                        shouldScroll = true;
+                        break;
+                    }
+                    // If we're at the first few elements, just go to previous
+                    else if (i === 0 || i < currentIndex - 2) {
+                        newIndex = i;
+                        shouldScroll = true;
+                        break;
+                    }
                 }
                 break;
 

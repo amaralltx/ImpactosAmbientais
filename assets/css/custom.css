@@ -167,14 +167,21 @@ div#wrapper {
     width: 100% !important;
     display: flex !important;
     justify-content: center !important;
+    align-items: center !important;
+    /* Alinha os itens do menu verticalmente */
     flex-wrap: wrap !important;
     margin: 0 !important;
     padding: 0 !important;
+    min-height: 3em !important;
+    /* Altura mínima para consistência */
 }
 
 #nav ul li {
     flex: 0 1 auto !important;
-    margin: 0 1em !important;
+    margin: 0 0.5em !important;
+    display: flex !important;
+    align-items: center !important;
+    /* Centraliza os links dentro do li */
 }
 
 /* Responsividade para o menu */
@@ -226,23 +233,44 @@ div#wrapper {
     box-shadow: none !important;
 }
 
+/* Correção para área clicável dos links do menu */
+#nav ul li {
+    position: relative !important;
+}
+
+#nav ul li a {
+    z-index: 10 !important;
+    /* Garante que o link está acima de outros elementos */
+}
+
 /* Configuração base dos links do menu */
 #nav ul li a {
     position: relative !important;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    padding-bottom: 1em !important;
-    /* Aumentado para afastar o traço */
-    padding-top: 0.75em !important;
+    padding: 0.75em 1em 0.75em 1em !important;
+    /* Padding uniforme para centralização */
     color: #6b7280 !important;
     /* Cinza médio para fundo claro */
+    display: inline-flex !important;
+    /* Flex para melhor alinhamento */
+    align-items: center !important;
+    /* Centraliza verticalmente o texto */
+    justify-content: center !important;
+    /* Centraliza horizontalmente o texto */
+    text-align: center !important;
+    /* Alinhamento do texto */
+    vertical-align: middle !important;
+    /* Alinhamento vertical */
+    line-height: 1.2 !important;
+    /* Altura de linha consistente */
 }
 
 /* Linha minimalista - estado inicial (invisível) */
 #nav ul li a:after {
     content: '' !important;
     position: absolute !important;
-    bottom: -0.15em !important;
-    /* Na base do elemento, abaixo do texto */
+    bottom: 12px !important;
+    /* Exatamente na borda inferior do link */
     left: 50% !important;
     width: 0 !important;
     height: 2px !important;
@@ -251,6 +279,8 @@ div#wrapper {
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
     transform: translateX(-50%) !important;
     border-radius: 2px !important;
+    pointer-events: none !important;
+    /* Evita interferência na área clicável */
 }
 
 /* Efeito hover - expande a linha suavemente */
