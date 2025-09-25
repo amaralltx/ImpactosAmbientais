@@ -910,6 +910,74 @@ body.quiz-page ul.actions .button {
     min-height: auto !important;
     height: auto !important;
     line-height: 1.2 !important;
+    border-radius: 4px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.5em !important;
+    min-width: 120px !important;
+    text-align: center !important;
+    font-weight: 500 !important;
+    transition: all 0.2s ease !important;
+    border: none !important;
+}
+
+/* Botão Pular - estilo secundário padronizado */
+body.quiz-page ul.actions .button:not(.primary) {
+    background-color: #6c757d !important;
+    color: #ffffff !important;
+}
+
+/* Garantir que a cor branca seja aplicada em todos os estados */
+body.quiz-page ul.actions li .button:not(.primary) {
+    color: #ffffff !important;
+}
+
+body.quiz-page ul.actions li a.button:not(.primary) {
+    color: #ffffff !important;
+}
+
+body.quiz-page ul.actions .button:not(.primary):hover {
+    background-color: #5a6268 !important;
+    color: #ffffff !important;
+    transform: translateY(-1px) !important;
+}
+
+/* Força máxima especificidade para a cor branca no botão pular */
+body.quiz-page ul.actions li a.button.small:not(.primary) {
+    color: #ffffff !important;
+}
+
+body.quiz-page ul.actions li a.button.small:not(.primary):hover {
+    color: #ffffff !important;
+}
+
+/* Sobrescrever o estilo do #main .button que define cor cinza */
+body.quiz-page #main ul.actions .button:not(.primary) {
+    color: #ffffff !important;
+}
+
+body.quiz-page #main ul.actions .button:not(.primary):hover {
+    color: #ffffff !important;
+}
+
+body.quiz-page #main ul.actions li .button:not(.primary) {
+    color: #ffffff !important;
+}
+
+body.quiz-page #main ul.actions li a.button:not(.primary) {
+    color: #ffffff !important;
+}
+
+/* Botão Próximo/Finalizar - estilo primário */
+body.quiz-page ul.actions .button.primary {
+    background-color: #4fc3f7 !important;
+    color: white !important;
+}
+
+body.quiz-page ul.actions .button.primary:hover {
+    background-color: #29b6f6 !important;
+    transform: translateY(-1px) !important;
 }
 
 /* Permitir que o Alpine.js controle a visibilidade naturalmente */
