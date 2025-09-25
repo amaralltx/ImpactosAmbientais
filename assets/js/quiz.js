@@ -15,11 +15,22 @@ function quizData() {
         // Resultados
         answers: [],
         score: 0,
+        quizScore: 0,
         startTime: null,
         endTime: null,
 
         // Configurações
         questionsToShow: 5,
+
+        // Configurações do quiz
+        quizSettings: {
+            timerMode: false,
+            showFeedback: true
+        },
+
+        // Timer
+        questionTimeLeft: 0,
+        questionTimeLimit: 60,
 
         // Inicializar quiz
         init() {
@@ -35,7 +46,6 @@ function quizData() {
 
         // Iniciar quiz
         startQuiz() {
-            console.log('startQuiz() chamado'); // Debug
             this.quizStarted = true;
             this.quizCompleted = false;
             this.showingQuizHistory = false;
@@ -48,7 +58,6 @@ function quizData() {
 
             // Embaralhar perguntas e selecionar apenas algumas
             this.quizQuestions = this.shuffleArray([...quizQuestions]).slice(0, this.questionsToShow);
-            console.log('Quiz iniciado com', this.quizQuestions.length, 'perguntas');
         },
 
         // Embaralhar array
@@ -67,21 +76,13 @@ function quizData() {
 
             this.selectedAnswer = answerIndex;
             this.questionAnswered = true;
+            this.answers[this.currentQuestion] = answerIndex;
 
             // Verificar se está correto
             const question = this.quizQuestions[this.currentQuestion];
             if (answerIndex === question.correctAnswer) {
                 this.score++;
             }
-
-            this.answers.push({
-                questionId: question.id,
-                question: question.question,
-                selectedAnswer: answerIndex,
-                correctAnswer: question.correctAnswer,
-                correct: answerIndex === question.correctAnswer,
-                explanation: question.explanation
-            });
         },
 
         // Próxima pergunta
@@ -196,6 +197,98 @@ function quizData() {
             const history = this.loadQuizHistory();
             if (history.length === 0) return 0;
             return Math.max(...history.map(result => result.percentage));
+        },
+
+        // Verificar se a resposta está correta
+        isAnswerCorrect(questionIndex) {
+            return this.answers[questionIndex] === this.quizQuestions[questionIndex]?.correctAnswer;
+        },
+
+        // Pular questão
+        skipQuestion() {
+            this.answers[this.currentQuestion] = null;
+            this.questionAnswered = true;
+        },
+
+        // Próxima questão
+        nextQuestion() {
+            if (this.currentQuestion < this.quizQuestions.length - 1) {
+                this.currentQuestion++;
+                this.selectedAnswer = null;
+                this.questionAnswered = false;
+            } else {
+                this.finishQuiz();
+            }
+        },
+
+        // Verificar se pode prosseguir
+        canProceedToNext() {
+            return this.questionAnswered || this.answers[this.currentQuestion] !== undefined;
+        },
+
+        // Finalizar quiz
+        finishQuiz() {
+            this.endTime = new Date();
+            this.quizCompleted = true;
+            this.quizStarted = false;
+
+            // Calcular score
+            this.quizScore = this.answers.filter((answer, index) =>
+                answer === this.quizQuestions[index]?.correctAnswer
+            ).length;
+
+            // Salvar no histórico
+            this.saveQuizResult();
+        },
+
+        // Salvar resultado
+        saveQuizResult() {
+            const result = {
+                timestamp: new Date().toISOString(),
+                score: this.quizScore,
+                total: this.quizQuestions.length,
+                percentage: Math.round((this.quizScore / this.quizQuestions.length) * 100),
+                timeSpent: this.endTime - this.startTime
+            };
+
+            const history = this.loadQuizHistory();
+            history.push(result);
+            localStorage.setItem('quizHistory', JSON.stringify(history));
+        },
+
+        // Funções de pontuação e classificação
+        getScoreEmoji() {
+            const percentage = (this.quizScore / this.quizQuestions.length) * 100;
+            if (percentage >= 90) return '🏆';
+            if (percentage >= 80) return '🥇';
+            if (percentage >= 70) return '🥈';
+            if (percentage >= 60) return '🥉';
+            return '📚';
+        },
+
+        getScoreGrade() {
+            const percentage = (this.quizScore / this.quizQuestions.length) * 100;
+            if (percentage >= 90) return 'Excelente';
+            if (percentage >= 80) return 'Muito Bom';
+            if (percentage >= 70) return 'Bom';
+            if (percentage >= 60) return 'Regular';
+            return 'Precisa Melhorar';
+        },
+
+        // Funções de histórico
+        getAverageScore() {
+            const history = this.loadQuizHistory();
+            if (history.length === 0) return 0;
+            const sum = history.reduce((acc, result) => acc + result.percentage, 0);
+            return Math.round(sum / history.length);
+        },
+
+        getSkippedCount() {
+            return this.answers.filter(answer => answer === null).length;
+        },
+
+        hasQuizHistory() {
+            return this.loadQuizHistory().length > 0;
         }
     }
 }

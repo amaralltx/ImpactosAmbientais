@@ -48,7 +48,8 @@
         <div id="main">
 
             <!-- Quiz Start Screen -->
-            <section id="quiz-start" class="main" x-show="!quizStarted && !quizCompleted && !showingQuizHistory">
+            <section id="quiz-start" class="main quiz-section"
+                x-show="!quizStarted && !quizCompleted && !showingQuizHistory">
                 <div class="spotlight">
                     <div class="content">
                         <header class="major">
@@ -108,18 +109,20 @@
                             </div>
                         </div>
                     </div>
-                    <span class="image"><img src="images/pic01.jpg" alt="" /></span>
+                    <span class="image"><img src="assets/images/quiz.jpg" alt="" style="border: 3px solid #2d5a4a; 
+                               border-radius: 50%; 
+                               box-shadow: 0 8px 24px rgba(45, 90, 74, 0.3), 
+                                          0 4px 12px rgba(102, 204, 122, 0.2), 
+                                          inset 0 1px 0 rgba(255, 255, 255, 0.1); 
+                               filter: brightness(1.05) contrast(1.1);" /></span>
                 </div>
             </section>
 
             <!-- Quiz Question Screen -->
-            <section id="quiz-question" class="main" x-show="quizStarted && !quizCompleted">
-                <header class="major">
-                    <h2 x-text="'Questão ' + (currentQuestion + 1) + ' de ' + quizQuestions.length"></h2>
-                    <div x-show="quizSettings.timerMode && questionTimeLeft > 0"
-                        style="color: #e74c3c; font-size: 1.2em;">
-                        ⏰ <span x-text="questionTimeLeft + 's'"></span>
-                    </div>
+            <section id="quiz-question" class="main quiz-section" x-show="quizStarted && !quizCompleted">
+                <header class="major" style="margin-bottom: 1rem !important;">
+                    <h2 x-text="'Questão ' + (currentQuestion + 1) + ' de ' + quizQuestions.length"
+                        style="font-size: 1.5rem !important; margin-bottom: 0.5rem !important;"></h2>
                 </header>
 
                 <div class="question-container" x-show="quizQuestions[currentQuestion]">
@@ -135,7 +138,7 @@
                     <h3 x-text="quizQuestions[currentQuestion]?.question"
                         style="margin-bottom: 30px; font-size: 1.3em;"></h3>
 
-                    <div class="question-options" style="margin-bottom: 30px;">
+                    <div class="question-options" style="margin-bottom: 15px;">
                         <template x-for="(option, index) in quizQuestions[currentQuestion]?.options" :key="index">
                             <button class="button" :class="{
 										'primary': answers[currentQuestion] === index && !questionAnswered,
@@ -146,7 +149,7 @@
 										'color': questionAnswered && (index === quizQuestions[currentQuestion].correctAnswer || (answers[currentQuestion] === index && index !== quizQuestions[currentQuestion].correctAnswer)) ? 'white' : '',
 										'display': 'block',
 										'width': '100%',
-										'margin-bottom': '10px',
+										'margin-bottom': '6px',
 										'text-align': 'left'
 									}" @click="selectAnswer(index)" :disabled="questionAnswered"
                                 x-text="String.fromCharCode(65 + index) + ') ' + option">
@@ -156,31 +159,23 @@
 
                     <!-- Feedback -->
                     <div x-show="questionAnswered && quizSettings.showFeedback"
-                        style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
-                        <div style="margin-bottom: 10px;">
+                        style="background: #f8f9fa; padding: 12px; border-radius: 6px; margin-bottom: 10px;">
+                        <div style="margin-bottom: 6px;">
                             <span x-show="isAnswerCorrect(currentQuestion)" style="color: #27ae60; font-weight: bold;">✅
                                 Correto!</span>
                             <span x-show="!isAnswerCorrect(currentQuestion)"
                                 style="color: #e74c3c; font-weight: bold;">❌ Incorreto!</span>
                         </div>
-                        <div x-text="quizQuestions[currentQuestion]?.explanation" style="line-height: 1.6;"></div>
+                        <div x-text="quizQuestions[currentQuestion]?.explanation"
+                            style="line-height: 1.4; font-size: 0.9em;"></div>
                     </div>
 
-                    <!-- Hint System -->
-                    <div x-show="!questionAnswered && !hintUsed[currentQuestion]" style="margin-bottom: 20px;">
-                        <button class="button small" @click="showHint()">💡 Dica</button>
-                    </div>
-
-                    <div x-show="hintUsed[currentQuestion]"
-                        style="background: #fff3cd; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
-                        <div><strong>💡 Dica:</strong> A resposta está relacionada aos conceitos apresentados no slide
-                            correspondente.</div>
-                    </div>
                 </div>
 
-                <ul class="actions">
-                    <li><a href="#" @click="skipQuestion()" x-show="!questionAnswered" class="button">⏭️ Pular</a></li>
-                    <li><a href="#" @click="nextQuestion()" x-show="canProceedToNext()" class="button primary"
+                <ul class="actions" style="margin-top: 1rem !important;">
+                    <li><a href="#" @click="skipQuestion()" x-show="!questionAnswered" class="button small">⏭️ Pular</a>
+                    </li>
+                    <li><a href="#" @click="nextQuestion()" x-show="canProceedToNext()" class="button primary small"
                             x-text="currentQuestion === quizQuestions.length - 1 ? 'Finalizar' : 'Próxima'"></a></li>
                 </ul>
             </section>
@@ -302,7 +297,7 @@
     <script src="assets/js/quiz.js"></script>
 
     <!-- Alpine.js must load last -->
-    <script src="lib/alpine.min.js"></script>
+    <script defer src="lib/alpine.min.js"></script>
 
 </body>
 

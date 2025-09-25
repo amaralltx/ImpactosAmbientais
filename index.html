@@ -28,12 +28,12 @@
 		<!-- Nav -->
 		<nav id="nav">
 			<ul>
-				<li><a href="#intro" class="active">Introdução</a></li>
-				<li><a href="#first">Ciclo Industrial</a></li>
-				<li><a href="#second">Matéria-Prima</a></li>
-				<li><a href="#third">Impactos</a></li>
-				<li><a href="#fourth">Boas Práticas</a></li>
-				<li><a href="#fifth">Engenharia</a></li>
+				<li><a href="index.html" class="active">Home</a></li>
+				<li><a href="ciclo.html">Ciclo Industrial</a></li>
+				<li><a href="materia-prima.html">Matéria Prima</a></li>
+				<li><a href="impactos.html">Impactos</a></li>
+				<li><a href="boas-praticas.html">Boas Práticas</a></li>
+				<li><a href="engenharia.html">Engenharia</a></li>
 				<li><a href="quiz.html">Quiz</a></li>
 			</ul>
 		</nav>
@@ -88,7 +88,7 @@
 				</ul>
 				<footer class="major">
 					<ul class="actions special">
-						<li><a href="ciclo.html" class="button">Saiba Mais</a></li>
+						<li><a href="#" class="button" onclick="openCicloModal()">Ver Slides</a></li>
 					</ul>
 				</footer>
 			</section>
@@ -140,7 +140,7 @@
 					impactos.</p>
 				<footer class="major">
 					<ul class="actions special">
-						<li><a href="materia-prima.html" class="button">Saiba Mais</a></li>
+						<li><a href="#" class="button" onclick="openMateriaPrimaModal()">Ver Slides</a></li>
 					</ul>
 				</footer>
 			</section>
@@ -172,7 +172,7 @@
 				</ul>
 				<footer class="major">
 					<ul class="actions special">
-						<li><a href="impactos.html" class="button">Saiba Mais</a></li>
+						<li><a href="#" class="button" onclick="openImpactosModal()">Ver Slides</a></li>
 					</ul>
 				</footer>
 			</section>
@@ -222,7 +222,7 @@
 					Essas práticas não apenas reduzem danos ambientais, mas também geram benefícios econômicos.</p>
 				<footer class="major">
 					<ul class="actions special">
-						<li><a href="boas-praticas.html" class="button">Saiba Mais</a></li>
+						<li><a href="#" class="button" onclick="openBoasPraticasModal()">Ver Slides</a></li>
 					</ul>
 				</footer>
 			</section>
@@ -255,7 +255,7 @@
 				</ul>
 				<footer class="major">
 					<ul class="actions special">
-						<li><a href="engenharia.html" class="button">Saiba Mais</a></li>
+						<li><a href="#" class="button" onclick="openEngenhariaModal()">Ver Slides</a></li>
 					</ul>
 				</footer>
 			</section>
@@ -279,6 +279,1003 @@
 
 	</div>
 
+	<!-- Modal: Ciclo de Vida do Produto Industrial -->
+	<div id="cicloModal" class="modal-overlay">
+		<div class="modal-container">
+			<button class="modal-close" onclick="closeCicloModal()">&times;</button>
+
+			<div class="modal-content">
+				<!-- Slide 1: Introdução -->
+				<div class="slide-container active" id="slide-1">
+					<div class="slide-number">Slide 1 de 6</div>
+					<h3>🔄 Introdução ao Ciclo de Vida</h3>
+					<img src="assets/images/ciclo.png" alt="Ciclo de Vida Industrial" class="slide-image">
+					<div class="slide-content">
+						<p>O ciclo de vida de um produto industrial compreende todas as etapas desde a extração das
+							matérias-primas até a disposição final dos resíduos.</p>
+
+						<div class="slide-two-columns">
+							<div class="slide-column-left">
+								<p><strong>Principais etapas do ciclo:</strong></p>
+								<ul>
+									<li>Extração de Matéria-Prima</li>
+									<li>Transporte de Materiais</li>
+									<li>Processamento e Manufatura</li>
+									<li>Distribuição e Uso</li>
+									<li>Fim de Vida e Disposição Final</li>
+								</ul>
+							</div>
+							<div class="slide-column-right">
+								<div class="highlight-box">
+									<h4>🎯 Avaliação do Ciclo de Vida (ACV)</h4>
+									<p>A ACV é uma ferramenta fundamental para identificar oportunidades de melhoria e
+										redução
+										de impactos ambientais em todas as fases do produto.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Slide 2: Extração de Matéria-Prima -->
+				<div class="slide-container" id="slide-2">
+					<div class="slide-number">Slide 2 de 6</div>
+					<h3>⛏️ 1. Extração de Matéria-Prima</h3>
+					<img src="assets/images/pic02.jpg" alt="Extração de Matérias-Primas" class="slide-image">
+					<div class="slide-content">
+						<p>A primeira etapa do ciclo de vida envolve a extração de recursos naturais do meio ambiente.
+							Esta fase é crucial pois determina o impacto inicial do produto no ecossistema.</p>
+
+						<div class="slide-two-columns">
+							<div class="slide-column-left">
+								<p><strong>Principais Atividades:</strong></p>
+								<ul>
+									<li><strong>Mineração:</strong> Extração de metais e minerais</li>
+									<li><strong>Silvicultura:</strong> Obtenção de madeira</li>
+									<li><strong>Agricultura:</strong> Matérias-primas orgânicas</li>
+									<li><strong>Extração Petrolífera:</strong> Petróleo e gás</li>
+								</ul>
+							</div>
+							<div class="slide-column-right">
+								<div class="warning-box">
+									<h4>⚠️ Impactos Ambientais</h4>
+									<p>Principais consequências da extração intensiva de recursos naturais para o meio
+										ambiente.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Slide 3: Transporte -->
+				<div class="slide-container" id="slide-3">
+					<div class="slide-number">Slide 3 de 6</div>
+					<h3>🚛 2. Transporte de Matérias-Primas</h3>
+					<img src="assets/images/pic03.jpg" alt="Transporte Industrial" class="slide-image">
+					<div class="slide-content">
+						<p>O transporte conecta a extração às unidades de processamento, representando uma etapa
+							intermediária crítica com impactos específicos relacionados à mobilidade de cargas.</p>
+
+						<div class="slide-two-columns">
+							<div class="slide-column-left">
+								<p><strong>Impactos do Transporte:</strong></p>
+								<ul>
+									<li><strong>Emissões Atmosféricas:</strong> CO₂ e poluentes</li>
+									<li><strong>Consumo Energético:</strong> Combustíveis fósseis</li>
+									<li><strong>Fragmentação Ambiental:</strong> Divisão de habitats</li>
+									<li><strong>Riscos de Acidentes:</strong> Contaminação do solo</li>
+								</ul>
+							</div>
+							<div class="slide-column-right">
+								<div class="warning-box">
+									<h4>🚛 Modal Rodoviário Predominante</h4>
+									<p>No Brasil, <strong>mais de 60%</strong> do transporte de cargas depende das
+										rodovias,
+										gerando impactos significativos por seu alto consumo de combustíveis fósseis.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Slide 4: Processamento e Manufatura -->
+				<div class="slide-container" id="slide-4">
+					<div class="slide-number">Slide 4 de 6</div>
+					<h3>🏭 3. Processamento e Manufatura</h3>
+					<img src="assets/images/pic04.jpg" alt="Processamento Industrial" class="slide-image">
+					<div class="slide-content">
+						<p>A fase de manufatura transforma as matérias-primas em produtos acabados através de processos
+							industriais complexos que consomem energia e recursos significativos.</p>
+
+						<div class="slide-two-columns">
+							<div class="slide-column-left">
+								<p><strong>Principais Recursos Consumidos:</strong></p>
+								<ul>
+									<li><strong>Energia Elétrica:</strong> Operação de máquinas</li>
+									<li><strong>Água Industrial:</strong> Resfriamento e limpeza</li>
+									<li><strong>Produtos Químicos:</strong> Solventes e aditivos</li>
+									<li><strong>Combustíveis:</strong> Fornos e aquecimento</li>
+								</ul>
+							</div>
+							<div class="slide-column-right">
+								<div class="info-box">
+									<h4>💡 Eficiência Industrial</h4>
+									<p>"A eficiência nos processos de manufatura é fundamental para reduzir o impacto
+										ambiental
+										total do produto" - Conselho Mundial de Negócios para o Desenvolvimento
+										Sustentável</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Slide 5: Distribuição e Uso -->
+				<div class="slide-container" id="slide-5">
+					<div class="slide-number">Slide 5 de 6</div>
+					<h3>📦 4. Distribuição e Uso</h3>
+					<img src="assets/images/pic05.jpg" alt="Distribuição e Uso" class="slide-image">
+					<div class="slide-content">
+						<p>Após a manufatura, os produtos precisam ser distribuídos aos consumidores e utilizados
+							durante sua vida útil. Esta fase envolve logística complexa e padrões de consumo diversos.
+						</p>
+
+						<div class="slide-two-columns">
+							<div class="slide-column-left">
+								<p><strong>Etapas Principais:</strong></p>
+								<ul>
+									<li><strong>Embalagem:</strong> Proteção do produto</li>
+									<li><strong>Distribuição:</strong> Transporte ao consumidor</li>
+									<li><strong>Uso:</strong> Consumo energético operacional</li>
+									<li><strong>Manutenção:</strong> Conservação da funcionalidade</li>
+								</ul>
+							</div>
+							<div class="slide-column-right">
+								<div class="info-box">
+									<h4>💡 Impacto do Comportamento do Consumidor</h4>
+									<p>A forma como os consumidores utilizam os produtos pode representar <strong>até
+											80% do
+											impacto ambiental total</strong> em alguns casos, como eletrodomésticos e
+										veículos.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Slide 6: Fim de Vida -->
+				<div class="slide-container" id="slide-6">
+					<div class="slide-number">Slide 6 de 6</div>
+					<h3>♻️ 5. Fim de Vida e Disposição Final</h3>
+					<img src="assets/images/pic06.jpg" alt="Fim de Vida" class="slide-image">
+					<div class="slide-content">
+						<p>A etapa final do ciclo de vida determina como os produtos serão tratados após perderem sua
+							funcionalidade. Esta fase é crucial para fechar o ciclo e minimizar impactos ambientais.</p>
+
+						<div class="slide-two-columns">
+							<div class="slide-column-left">
+								<p><strong>Estratégias de Melhoria:</strong></p>
+								<ul>
+									<li><strong>Ecodesign:</strong> Incorporar critérios ambientais desde a concepção
+									</li>
+									<li><strong>Eficiência de Recursos:</strong> Otimizar o uso de materiais e energia
+									</li>
+									<li><strong>Energias Renováveis:</strong> Substituir fontes fósseis por alternativas
+										limpas
+									</li>
+									<li><strong>Economia Circular:</strong> Fechar loops de materiais através de
+										reciclagem</li>
+								</ul>
+							</div>
+							<div class="slide-column-right">
+								<div class="success-box">
+									<h4>♻️ Economia Circular</h4>
+									<p>A implementação de práticas de reciclagem e reutilização pode reduzir até
+										<strong>95% do consumo de energia</strong> comparado à produção com materiais
+										virgens.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Botões de navegação flutuantes -->
+			<button class="floating-nav floating-nav-prev" id="prevBtn" onclick="changeSlide(-1)">‹</button>
+			<button class="floating-nav floating-nav-next" id="nextBtn" onclick="changeSlide(1)">›</button>
+		</div>
+	</div>
+
+	<!-- Modal: Extração de Matéria-Prima -->
+	<div id="materiaPrimaModal" class="modal-overlay">
+		<div class="modal-container">
+			<button class="modal-close" onclick="closeMateriaPrimaModal()">&times;</button>
+
+			<div class="modal-content">
+				<!-- Slide 1: Introdução -->
+				<div class="slide-container active" id="mp-slide-1">
+					<div class="slide-number">Slide 1 de 9</div>
+					<h2>🌿 Extração de Matéria-Prima</h2>
+					<div class="slide-content two-column">
+						<div class="slide-column-left">
+							<p><strong>A extração de matérias-primas</strong> é a primeira e mais impactante fase do
+								ciclo produtivo industrial, envolvendo a remoção de recursos naturais e causando
+								significativas alterações nos ecossistemas.</p>
+
+							<h4>📊 Estatísticas de Impacto</h4>
+							<ul>
+								<li><strong>75%</strong> - Degradação do solo por mineração</li>
+								<li><strong>40%</strong> - Poluição hídrica por extração</li>
+								<li><strong>30%</strong> - Perda de habitats por desmatamento</li>
+							</ul>
+						</div>
+						<div class="slide-column-right">
+							<div class="warning-box">
+								<h4>⚠️ Definição</h4>
+								<p>Matéria-prima é um material básico em estado bruto extraído da natureza para produção
+									de bens. Inclui recursos <strong>animais, vegetais e minerais</strong>.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Slide 2: Impactos Florestais e Agropecuários -->
+				<div class="slide-container" id="mp-slide-2">
+					<div class="slide-number">Slide 2 de 9</div>
+					<h3>🌲 Impactos na Biodiversidade</h3>
+					<div class="slide-content two-column">
+						<div class="slide-column-left">
+							<h4>🌳 Impactos Florestais</h4>
+							<ul>
+								<li>Desmatamento e perda de biodiversidade</li>
+								<li>Erosão do solo e assoreamento</li>
+								<li>Alteração do ciclo hidrológico</li>
+								<li>Liberação de carbono armazenado</li>
+							</ul>
+						</div>
+						<div class="slide-column-right">
+							<div class="danger-box">
+								<h4>🚜 Impactos Agropecuários</h4>
+								<p>Uso intensivo de <strong>agrotóxicos e fertilizantes</strong>, compactação do solo,
+									contaminação hídrica e perda da diversidade genética por monocultura.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Slide 3: Degradação Ambiental -->
+				<div class="slide-container" id="mp-slide-3">
+					<div class="slide-number">Slide 3 de 9</div>
+					<h3>⛏️ Degradação dos Ecossistemas</h3>
+					<div class="slide-content two-column">
+						<div class="slide-column-left">
+							<h4>Principais Problemas</h4>
+							<ul>
+								<li>Perda de habitat por expansão industrial</li>
+								<li>Erosão e alterações geomorfológicas</li>
+								<li>Contaminação de águas superficiais</li>
+								<li>Emissão de poeira e poluentes</li>
+							</ul>
+						</div>
+						<div class="slide-column-right">
+							<div class="highlight-box">
+								<h4>💧 Consumo de Recursos</h4>
+								<p>Processos industriais exigem <strong>enormes quantidades</strong> de energia e água,
+									causando escassez hídrica e pressão sobre aquíferos.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Slide 4: Combustíveis e Processamento -->
+				<div class="slide-container" id="mp-slide-4">
+					<div class="slide-number">Slide 4 de 9</div>
+					<h3>🏭 Processamento Industrial</h3>
+					<div class="slide-content two-column">
+						<div class="slide-column-left">
+							<h4>Combustíveis Fósseis</h4>
+							<ul>
+								<li>Carvão mineral e gás natural</li>
+								<li>Petróleo e derivados</li>
+								<li>Emissão de gases estufa</li>
+								<li>Poluição atmosférica</li>
+							</ul>
+						</div>
+						<div class="slide-column-right">
+							<div class="warning-box">
+								<h4>⚠️ Refinarias</h4>
+								<p>Grandes consumidoras de <strong>água e energia</strong>, geram despejos
+									contaminantes, gases nocivos e resíduos perigosos.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Slide 5: Solventes Industriais -->
+				<div class="slide-container" id="mp-slide-5">
+					<div class="slide-number">Slide 5 de 9</div>
+					<h3>🧪 Solventes Industriais</h3>
+					<div class="slide-content two-column">
+						<div class="slide-column-left">
+							<h4>Problemas dos Solventes</h4>
+							<ul>
+								<li>Maioria obtida de matérias não renováveis</li>
+								<li>Acetona com elevada inflamabilidade</li>
+								<li>Origem petrolífera predominante</li>
+								<li>Alto consumo anual industrial</li>
+							</ul>
+						</div>
+						<div class="slide-column-right">
+							<div class="warning-box">
+								<h4>⚠️ Riscos Ambientais</h4>
+								<p>Solventes convencionais possuem <strong>alta inflamabilidade</strong> e dependência
+									de combustíveis fósseis.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Slide 6: Transporte -->
+				<div class="slide-container" id="mp-slide-6">
+					<div class="slide-number">Slide 6 de 9</div>
+					<h3>🚛 Transporte de Cargas</h3>
+					<div class="slide-content two-column">
+						<div class="slide-column-left">
+							<h4>Impactos do Transporte</h4>
+							<ul>
+								<li>Emissões veiculares (CO₂, NOx, SOx)</li>
+								<li>Material particulado e poluentes</li>
+								<li>Fragmentação de ecossistemas</li>
+								<li>Atropelamentos de fauna silvestre</li>
+							</ul>
+						</div>
+						<div class="slide-column-right">
+							<div class="danger-box">
+								<h4>📊 Transporte no Brasil</h4>
+								<p>Mais de <strong>60% das cargas industriais</strong> dependem das rodovias, gerando
+									alto consumo de combustíveis fósseis.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Slide 7: Distribuição e Uso -->
+				<div class="slide-container" id="mp-slide-7">
+					<div class="slide-number">Slide 7 de 9</div>
+					<h3>📦 Distribuição e Uso</h3>
+					<div class="slide-content two-column">
+						<div class="slide-column-left">
+							<h4>Impactos na Distribuição</h4>
+							<ul>
+								<li>Dependência de combustíveis fósseis</li>
+								<li>Ruídos e desgaste de vias</li>
+								<li>Riscos de acidentes e vazamentos</li>
+								<li>Contaminação de solo e água</li>
+							</ul>
+						</div>
+						<div class="slide-column-right">
+							<div class="highlight-box">
+								<h4>💡 Consciência do Consumidor</h4>
+								<p>A <strong>avaliação do ciclo de vida</strong> considera emissões de gases estufa e
+									consumo de recursos naturais.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Slide 8: Disposição Final -->
+				<div class="slide-container" id="mp-slide-8">
+					<div class="slide-number">Slide 8 de 9</div>
+					<h3>🗂️ Fim de Vida dos Produtos</h3>
+					<div class="slide-content two-column">
+						<div class="slide-column-left">
+							<h4>Métodos de Disposição</h4>
+							<ul>
+								<li>Aterros sanitários e lixiviados</li>
+								<li>Incineração e gases tóxicos</li>
+								<li>Reciclagem e economia de energia</li>
+								<li>Descarte informal e contaminação</li>
+							</ul>
+						</div>
+						<div class="slide-column-right">
+							<div class="success-box">
+								<h4>♻️ Reciclagem de Alumínio</h4>
+								<p>Economiza até <strong>95% da energia</strong> comparada à produção com bauxita
+									virgem.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Slide 9: Alternativas Sustentáveis -->
+				<div class="slide-container" id="mp-slide-9">
+					<div class="slide-number">Slide 9 de 9</div>
+					<h3>🌱 Soluções Sustentáveis</h3>
+					<div class="slide-content two-column">
+						<div class="slide-column-left">
+							<h4>Alternativas Viáveis</h4>
+							<ul>
+								<li>Bio-alternativas aos solventes petrolíferos</li>
+								<li>Ferrovias e hidrovias para transporte</li>
+								<li>Biocombustíveis e caminhões elétricos</li>
+								<li>Gestão integrada de resíduos</li>
+							</ul>
+						</div>
+						<div class="slide-column-right">
+							<div class="success-box">
+								<h4>🌿 Futuro Sustentável</h4>
+								<p>Implementação de <strong>processos sustentáveis</strong> e redução da dependência de
+									recursos fósseis em toda a cadeia produtiva.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Botões de navegação flutuantes -->
+			<button class="floating-nav floating-nav-prev" id="mpPrevBtn" onclick="changeMPSlide(-1)">‹</button>
+			<button class="floating-nav floating-nav-next" id="mpNextBtn" onclick="changeMPSlide(1)">›</button>
+		</div>
+	</div>
+
+	<!-- Modal: Impactos Transversais e Indicadores -->
+	<div id="impactosModal" class="modal-overlay">
+		<div class="modal-container">
+			<button class="modal-close" onclick="closeImpactosModal()">&times;</button>
+
+			<div class="modal-content">
+				<!-- Slide 1: Introdução -->
+				<div class="slide-container active" id="imp-slide-1">
+					<div class="slide-number">Slide 1 de 6</div>
+					<h2>📊 Impactos Transversais e Indicadores</h2>
+					<div class="slide-content two-column">
+						<div class="slide-column-left">
+							<p>Os <strong>processos industriais</strong> geram impactos ambientais que atravessam
+								múltiplas dimensões ecológicas e socioeconômicas, afetando simultaneamente diferentes
+								compartimentos ambientais.</p>
+
+							<h4>Principais Características</h4>
+							<ul>
+								<li>Impactos em múltiplas dimensões</li>
+								<li>Requerem indicadores específicos</li>
+								<li>Monitoramento e controle complexos</li>
+								<li>Necessitam estratégias integradas</li>
+							</ul>
+						</div>
+						<div class="slide-column-right">
+							<div class="highlight-box">
+								<h4>🎯 Objetivo</h4>
+								<p>Quantificação precisa dos impactos é <strong>essencial</strong> para o
+									desenvolvimento de estratégias de mitigação eficazes.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Slide 2: Gases de Efeito Estufa -->
+				<div class="slide-container" id="imp-slide-2">
+					<div class="slide-number">Slide 2 de 6</div>
+					<h3>🌡️ Emissões de Gases de Efeito Estufa</h3>
+					<div class="slide-content two-column">
+						<div class="slide-column-left">
+							<h4>Principais Gases (CO₂e)</h4>
+							<ul>
+								<li><strong>CO₂:</strong> 76% das emissões globais</li>
+								<li><strong>CH₄:</strong> 16%, 25x mais potente</li>
+								<li><strong>N₂O:</strong> 6%, 298x mais potente</li>
+								<li><strong>Gases Fluorados:</strong> 2%, até 23.000x</li>
+							</ul>
+						</div>
+						<div class="slide-column-right">
+							<div class="danger-box">
+								<h4>📈 Dados Globais</h4>
+								<p>A indústria é responsável por <strong>21% das emissões globais</strong> de GEE, com
+									crescimento de 1,8% ao ano desde 1990.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Slide 3: Metodologias de Quantificação -->
+				<div class="slide-container" id="imp-slide-3">
+					<div class="slide-number">Slide 3 de 6</div>
+					<h3>🔬 Metodologias de Quantificação</h3>
+					<div class="slide-content two-column">
+						<div class="slide-column-left">
+							<h4>Escopos de Emissão</h4>
+							<ul>
+								<li><strong>Escopo 1:</strong> Emissões diretas (caldeiras, fornos)</li>
+								<li><strong>Escopo 2:</strong> Energia indireta (eletricidade)</li>
+								<li><strong>Escopo 3:</strong> Cadeia de suprimentos</li>
+								<li>Análise de ciclo de vida (ACV)</li>
+							</ul>
+						</div>
+						<div class="slide-column-right">
+							<div class="highlight-box">
+								<h4>🏭 Fontes Industriais</h4>
+								<p>Principais fontes: <strong>combustão</strong>, processos químicos, transporte e
+									vazamentos fugitivos.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Slide 4: Consumo de Água -->
+				<div class="slide-container" id="imp-slide-4">
+					<div class="slide-number">Slide 4 de 6</div>
+					<h3>💧 Pegada Hídrica Industrial</h3>
+					<div class="slide-content two-column">
+						<div class="slide-column-left">
+							<h4>Consumo por Setor</h4>
+							<ul>
+								<li><strong>Papel e Celulose:</strong> 10-20 m³/ton</li>
+								<li><strong>Siderurgia:</strong> 5-15 m³/ton</li>
+								<li><strong>Têxtil:</strong> 100-200 L/kg</li>
+								<li><strong>Química:</strong> Variável por processo</li>
+							</ul>
+						</div>
+						<div class="slide-column-right">
+							<div class="warning-box">
+								<h4>🌊 Pegada Hídrica</h4>
+								<p>Abrange consumo direto, <strong>água virtual</strong> incorporada e qualidade dos
+									recursos afetados.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Slide 5: Monitoramento Avançado -->
+				<div class="slide-container" id="imp-slide-5">
+					<div class="slide-number">Slide 5 de 6</div>
+					<h3>📡 Sistemas de Monitoramento</h3>
+					<div class="slide-content two-column">
+						<div class="slide-column-left">
+							<h4>Tecnologias Utilizadas</h4>
+							<ul>
+								<li>Monitoramento satelital global</li>
+								<li>Redes de estações terrestres</li>
+								<li>Sistemas de buias oceânicas</li>
+								<li>Torres de monitoramento florestal</li>
+							</ul>
+						</div>
+						<div class="slide-column-right">
+							<div class="success-box">
+								<h4>🎯 Precisão</h4>
+								<p>Monitoramento preciso é <strong>essencial</strong> para entender tendências
+									climáticas e desenvolver respostas adequadas.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Slide 6: Indicadores Ambientais -->
+				<div class="slide-container" id="imp-slide-6">
+					<div class="slide-number">Slide 6 de 6</div>
+					<h3>📋 Indicadores de Performance</h3>
+					<div class="slide-content two-column">
+						<div class="slide-column-left">
+							<h4>Principais Indicadores</h4>
+							<ul>
+								<li>Intensidade de carbono (tCO₂e/unidade)</li>
+								<li>Eficiência hídrica (m³/produto)</li>
+								<li>Taxa de reciclagem (%)</li>
+								<li>Consumo energético específico</li>
+							</ul>
+						</div>
+						<div class="slide-column-right">
+							<div class="success-box">
+								<h4>📈 Gestão Integrada</h4>
+								<p>Indicadores permitem <strong>monitoramento contínuo</strong> e tomada de decisões
+									baseada em dados.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Botões de navegação flutuantes -->
+			<button class="floating-nav floating-nav-prev" id="impPrevBtn" onclick="changeImpSlide(-1)">‹</button>
+			<button class="floating-nav floating-nav-next" id="impNextBtn" onclick="changeImpSlide(1)">›</button>
+		</div>
+	</div>
+
+	<!-- Modal: Boas Práticas e Medidas de Mitigação -->
+	<div id="boasPraticasModal" class="modal-overlay">
+		<div class="modal-container">
+			<button class="modal-close" onclick="closeBoasPraticasModal()">&times;</button>
+
+			<div class="modal-content">
+				<!-- Slide 1: Introdução -->
+				<div class="slide-container active" id="bp-slide-1">
+					<div class="slide-number">Slide 1 de 7</div>
+					<h2>🌱 Medidas de Mitigação e Boas Práticas</h2>
+					<div class="slide-content two-column">
+						<div class="slide-column-left">
+							<p>A implementação de <strong>medidas de mitigação</strong> representa uma abordagem
+								sistemática para reduzir os impactos negativos dos processos industriais.</p>
+
+							<h4>Estratégias Principais</h4>
+							<ul>
+								<li>Otimização de processos industriais</li>
+								<li>Eficiência energética avançada</li>
+								<li>Ecodesign de produtos</li>
+								<li>Economia circular</li>
+							</ul>
+						</div>
+						<div class="slide-column-right">
+							<div class="success-box">
+								<h4>💰 Benefícios</h4>
+								<p>Essas práticas não apenas reduzem danos ambientais, mas também geram
+									<strong>benefícios econômicos</strong> significativos.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Slide 2: Eficiência Energética -->
+				<div class="slide-container" id="bp-slide-2">
+					<div class="slide-number">Slide 2 de 7</div>
+					<h3>⚡ Eficiência Energética</h3>
+					<div class="slide-content two-column">
+						<div class="slide-column-left">
+							<h4>Potencial de Economia por Setor</h4>
+							<ul>
+								<li><strong>Siderurgia:</strong> 15-25% (recuperação de calor)</li>
+								<li><strong>Cimenteira:</strong> 20-30% (pré-aquecimento)</li>
+								<li><strong>Papel:</strong> 25-35% (cogeração)</li>
+								<li><strong>Petroquímica:</strong> 10-20% (integração)</li>
+							</ul>
+						</div>
+						<div class="slide-column-right">
+							<div class="highlight-box">
+								<h4>🔧 Estratégias</h4>
+								<p>Combinação de melhorias na <strong>eficiência energética</strong> com redução de
+									custos operacionais.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Slide 3: Integração Energética -->
+				<div class="slide-container" id="bp-slide-3">
+					<div class="slide-number">Slide 3 de 7</div>
+					<h3>🔄 Integração Energética</h3>
+					<div class="slide-content two-column">
+						<div class="slide-column-left">
+							<h4>Tecnologias Principais</h4>
+							<ul>
+								<li><strong>Pinch Analysis:</strong> Otimização de trocadores</li>
+								<li><strong>Cogeração:</strong> Energia elétrica e térmica</li>
+								<li><strong>Recuperação de Calor:</strong> Waste heat recovery</li>
+								<li><strong>Cascata Energética:</strong> Múltiplos níveis</li>
+							</ul>
+						</div>
+						<div class="slide-column-right">
+							<div class="success-box">
+								<h4>🎯 ISO 50001</h4>
+								<p>Norma fornece estrutura <strong>sistemática</strong> para gestão energética
+									empresarial.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Slide 4: Automação e Controle -->
+				<div class="slide-container" id="bp-slide-4">
+					<div class="slide-number">Slide 4 de 7</div>
+					<h3>🤖 Automação e Controle Avançado</h3>
+					<div class="slide-content two-column">
+						<div class="slide-column-left">
+							<h4>Sistemas Inteligentes</h4>
+							<ul>
+								<li><strong>SCADA:</strong> Supervisão automatizada</li>
+								<li><strong>Machine Learning:</strong> Algoritmos preditivos</li>
+								<li><strong>MPC:</strong> Controle preditivo de modelo</li>
+								<li><strong>IoT:</strong> Monitoramento em tempo real</li>
+							</ul>
+						</div>
+						<div class="slide-column-right">
+							<div class="highlight-box">
+								<h4>📊 Otimização</h4>
+								<p>Tecnologias avançadas permitem <strong>otimização contínua</strong> baseada em dados
+									em tempo real.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Slide 5: Produção Mais Limpa -->
+				<div class="slide-container" id="bp-slide-5">
+					<div class="slide-number">Slide 5 de 7</div>
+					<h3>🏭 Produção Mais Limpa</h3>
+					<div class="slide-content two-column">
+						<div class="slide-column-left">
+							<h4>Estratégias P+L</h4>
+							<ul>
+								<li>Redução na fonte de poluição</li>
+								<li>Substituição de matérias-primas</li>
+								<li>Modificação de processos</li>
+								<li>Reciclagem e reúso interno</li>
+							</ul>
+						</div>
+						<div class="slide-column-right">
+							<div class="success-box">
+								<h4>💡 Benefícios</h4>
+								<p>Redução de custos, melhoria da eficiência e <strong>minimização</strong> de impactos
+									ambientais.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Slide 6: Economia Circular -->
+				<div class="slide-container" id="bp-slide-6">
+					<div class="slide-number">Slide 6 de 7</div>
+					<h3>♻️ Economia Circular</h3>
+					<div class="slide-content two-column">
+						<div class="slide-column-left">
+							<h4>Princípios Fundamentais</h4>
+							<ul>
+								<li><strong>Design Circular:</strong> Produtos duráveis</li>
+								<li><strong>Sharing Economy:</strong> Uso compartilhado</li>
+								<li><strong>Remanufatura:</strong> Restauração industrial</li>
+								<li><strong>Simbiose Industrial:</strong> Troca de recursos</li>
+							</ul>
+						</div>
+						<div class="slide-column-right">
+							<div class="success-box">
+								<h4>🔄 Impacto</h4>
+								<p>Transição do modelo linear para <strong>circular</strong> reduz desperdício e cria
+									valor.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Slide 7: Gestão Ambiental Integrada -->
+				<div class="slide-container" id="bp-slide-7">
+					<div class="slide-number">Slide 7 de 7</div>
+					<h3>🌍 Gestão Ambiental Integrada</h3>
+					<div class="slide-content two-column">
+						<div class="slide-column-left">
+							<h4>Sistemas de Gestão</h4>
+							<ul>
+								<li><strong>ISO 14001:</strong> Sistema de gestão ambiental</li>
+								<li><strong>EMAS:</strong> Eco-Management europeu</li>
+								<li><strong>Life Cycle Assessment:</strong> Avaliação de ciclo</li>
+								<li><strong>Carbon Footprint:</strong> Pegada de carbono</li>
+							</ul>
+						</div>
+						<div class="slide-column-right">
+							<div class="success-box">
+								<h4>🎯 Melhoria Contínua</h4>
+								<p>Abordagem sistemática cria ciclo virtuoso de <strong>melhoria contínua</strong> da
+									performance ambiental.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Botões de navegação flutuantes -->
+			<button class="floating-nav floating-nav-prev" id="bpPrevBtn" onclick="changeBPSlide(-1)">‹</button>
+			<button class="floating-nav floating-nav-next" id="bpNextBtn" onclick="changeBPSlide(1)">›</button>
+		</div>
+	</div>
+
+	<!-- Modal: Engenharia e Inovação Tecnológica -->
+	<div id="engenhariaModal" class="modal-overlay">
+		<div class="modal-container">
+			<button class="modal-close" onclick="closeEngenhariaModal()">&times;</button>
+
+			<div class="modal-content">
+				<!-- Slide 1: Introdução -->
+				<div class="slide-container active" id="eng-slide-1">
+					<div class="slide-number">Slide 1 de 8</div>
+					<h2>🔬 Engenharia e Inovação Tecnológica</h2>
+					<div class="slide-content two-column">
+						<div class="slide-column-left">
+							<p>A <strong>engenharia</strong> desempenha papel fundamental na transição para uma economia
+								sustentável, desenvolvendo tecnologias inovadoras para redução drástica dos impactos
+								ambientais.</p>
+
+							<h4>Áreas de Atuação</h4>
+							<ul>
+								<li>Princípios de engenharia avançada</li>
+								<li>Digitalização de processos</li>
+								<li>Inovação tecnológica aplicada</li>
+								<li>Soluções integradas</li>
+							</ul>
+						</div>
+						<div class="slide-column-right">
+							<div class="highlight-box">
+								<h4>🎯 Objetivo</h4>
+								<p>Criar soluções que conciliam <strong>desenvolvimento econômico</strong> com
+									preservação ambiental.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Slide 2: Tecnologias de Tratamento -->
+				<div class="slide-container" id="eng-slide-2">
+					<div class="slide-number">Slide 2 de 8</div>
+					<h3>🧪 Tecnologias de Tratamento Avançado</h3>
+					<div class="slide-content two-column">
+						<div class="slide-column-left">
+							<h4>Eficiência de Remoção</h4>
+							<ul>
+								<li><strong>Osmose Reversa:</strong> >99% sais e metais</li>
+								<li><strong>MBR:</strong> >95% DBO e patógenos</li>
+								<li><strong>Oxidação Avançada:</strong> >90% orgânicos</li>
+								<li><strong>Carvão Ativado:</strong> >85% micropoluentes</li>
+							</ul>
+						</div>
+						<div class="slide-column-right">
+							<div class="success-box">
+								<h4>🔬 Vanguarda</h4>
+								<p>Tecnologias representam a <strong>vanguarda da engenharia</strong> ambiental com
+									processos sofisticados.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Slide 3: Separação por Membranas -->
+				<div class="slide-container" id="eng-slide-3">
+					<div class="slide-number">Slide 3 de 8</div>
+					<h3>🏗️ Tecnologias de Separação</h3>
+					<div class="slide-content two-column">
+						<div class="slide-column-left">
+							<h4>Tipos de Membrana</h4>
+							<ul>
+								<li><strong>Microfiltração:</strong> Sólidos e bactérias (0,1-10 μm)</li>
+								<li><strong>Ultrafiltração:</strong> Macromoléculas (0,01-0,1 μm)</li>
+								<li><strong>Nanofiltração:</strong> Íons multivalentes (1-10 nm)</li>
+								<li><strong>Osmose Reversa:</strong> Dessalinização (<1 nm)</li>
+							</ul>
+						</div>
+						<div class="slide-column-right">
+							<div class="highlight-box">
+								<h4>🎯 Aplicações</h4>
+								<p>Tecnologias atendem padrões ambientais <strong>rigorosos</strong> e viabilizam reúso
+									de recursos.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Slide 4: Biorreatores Avançados -->
+				<div class="slide-container" id="eng-slide-4">
+					<div class="slide-number">Slide 4 de 8</div>
+					<h3>🦠 Biorreatores Avançados</h3>
+					<div class="slide-content two-column">
+						<div class="slide-column-left">
+							<h4>Tecnologias Biológicas</h4>
+							<ul>
+								<li><strong>MBR:</strong> Tratamento biológico + filtração</li>
+								<li><strong>MBBR:</strong> Biofilme em meio móvel</li>
+								<li><strong>SBR:</strong> Bateladas sequenciais</li>
+								<li><strong>UASB:</strong> Digestão anaeróbica ascendente</li>
+							</ul>
+						</div>
+						<div class="slide-column-right">
+							<div class="success-box">
+								<h4>🔬 Inovação</h4>
+								<p>Combinação de <strong>processos biológicos</strong> com tecnologias avançadas de
+									separação.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Slide 5: Automação Industrial -->
+				<div class="slide-container" id="eng-slide-5">
+					<div class="slide-number">Slide 5 de 8</div>
+					<h3>🤖 Automação e Digitalização</h3>
+					<div class="slide-content two-column">
+						<div class="slide-column-left">
+							<h4>Indústria 4.0</h4>
+							<ul>
+								<li>Internet das Coisas (IoT) industrial</li>
+								<li>Inteligência artificial aplicada</li>
+								<li>Manutenção preditiva</li>
+								<li>Digital twins de processos</li>
+							</ul>
+						</div>
+						<div class="slide-column-right">
+							<div class="highlight-box">
+								<h4>📊 Benefícios</h4>
+								<p>Digitalização permite <strong>otimização contínua</strong> e redução significativa de
+									impactos.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Slide 6: Energia Renovável -->
+				<div class="slide-container" id="eng-slide-6">
+					<div class="slide-number">Slide 6 de 8</div>
+					<h3>🌞 Energias Renováveis Industriais</h3>
+					<div class="slide-content two-column">
+						<div class="slide-column-left">
+							<h4>Tecnologias Aplicadas</h4>
+							<ul>
+								<li>Sistemas solares fotovoltaicos</li>
+								<li>Energia eólica de grande porte</li>
+								<li>Biomassa e biogás industrial</li>
+								<li>Sistemas híbridos integrados</li>
+							</ul>
+						</div>
+						<div class="slide-column-right">
+							<div class="success-box">
+								<h4>⚡ Transição</h4>
+								<p>Integração de <strong>fontes renováveis</strong> reduz dependência de combustíveis
+									fósseis.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Slide 7: Materiais Avançados -->
+				<div class="slide-container" id="eng-slide-7">
+					<div class="slide-number">Slide 7 de 8</div>
+					<h3>🧬 Materiais e Nanotecnologia</h3>
+					<div class="slide-content two-column">
+						<div class="slide-column-left">
+							<h4>Inovações Materiais</h4>
+							<ul>
+								<li>Nanomateriais para purificação</li>
+								<li>Materiais biodegradáveis</li>
+								<li>Catalisadores avançados</li>
+								<li>Membranas inteligentes</li>
+							</ul>
+						</div>
+						<div class="slide-column-right">
+							<div class="warning-box">
+								<h4>🔬 Pesquisa</h4>
+								<p>Desenvolvimento de <strong>novos materiais</strong> com propriedades ambientais
+									superiores.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Slide 8: Futuro da Engenharia Ambiental -->
+				<div class="slide-container" id="eng-slide-8">
+					<div class="slide-number">Slide 8 de 8</div>
+					<h3>🚀 Futuro da Engenharia Ambiental</h3>
+					<div class="slide-content two-column">
+						<div class="slide-column-left">
+							<h4>Tendências Emergentes</h4>
+							<ul>
+								<li>Biotecnologia aplicada ao ambiente</li>
+								<li>Sistemas de captura de CO₂</li>
+								<li>Hidrogênio verde industrial</li>
+								<li>Economia do hidrogênio</li>
+							</ul>
+						</div>
+						<div class="slide-column-right">
+							<div class="success-box">
+								<h4>🌍 Impacto</h4>
+								<p>Engenharia será <strong>fundamental</strong> para alcançar neutralidade de carbono
+									industrial.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Botões de navegação flutuantes -->
+			<button class="floating-nav floating-nav-prev" id="engPrevBtn" onclick="changeEngSlide(-1)">‹</button>
+			<button class="floating-nav floating-nav-next" id="engNextBtn" onclick="changeEngSlide(1)">›</button>
+		</div>
+	</div>
+
 	<!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/jquery.scrollex.min.js"></script>
@@ -287,6 +1284,352 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
+
+	<!-- Modal Ciclo de Vida Script -->
+	<script>
+		let currentSlide = 1;
+		const totalSlides = 6;
+
+		function openCicloModal() {
+			document.getElementById('cicloModal').classList.add('active');
+			document.body.style.overflow = 'hidden'; // Previne scroll do fundo
+			document.body.classList.add('modal-open'); // Oculta menu
+			updateSlideDisplay();
+		}
+
+		function closeCicloModal() {
+			document.getElementById('cicloModal').classList.remove('active');
+			document.body.style.overflow = ''; // Restaura scroll do fundo
+			document.body.classList.remove('modal-open'); // Mostra menu
+			currentSlide = 1; // Reset para o primeiro slide
+			updateSlideDisplay();
+		}
+
+		function changeSlide(direction) {
+			const newSlide = currentSlide + direction;
+			if (newSlide >= 1 && newSlide <= totalSlides) {
+				currentSlide = newSlide;
+				updateSlideDisplay();
+			}
+		}
+
+		function updateSlideDisplay() {
+			console.log('Atualizando slide para:', currentSlide);
+			// Esconder todos os slides
+			for (let i = 1; i <= totalSlides; i++) {
+				const slideElement = document.getElementById(`slide-${i}`);
+				if (slideElement) {
+					slideElement.classList.remove('active');
+				}
+			}
+
+			// Mostrar slide atual
+			const currentSlideElement = document.getElementById(`slide-${currentSlide}`);
+			if (currentSlideElement) {
+				currentSlideElement.classList.add('active');
+				console.log('Slide ativo:', currentSlide);
+			} else {
+				console.error('Slide não encontrado:', currentSlide);
+			}
+
+			// Atualizar estado dos botões
+			const prevBtn = document.getElementById('prevBtn');
+			const nextBtn = document.getElementById('nextBtn');
+
+			prevBtn.disabled = currentSlide === 1;
+			nextBtn.disabled = currentSlide === totalSlides;
+
+			if (currentSlide === totalSlides) {
+				nextBtn.innerHTML = '✓';
+				nextBtn.onclick = closeCicloModal;
+			} else {
+				nextBtn.innerHTML = '›';
+				nextBtn.onclick = () => changeSlide(1);
+			}
+		}
+
+		// Navegação por teclado
+		document.addEventListener('keydown', function (event) {
+			if (document.getElementById('cicloModal').classList.contains('active')) {
+				if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+					changeSlide(-1);
+				} else if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+					changeSlide(1);
+				} else if (event.key === 'Escape') {
+					closeCicloModal();
+				}
+			}
+		});
+
+		// Fechar modal clicando no overlay
+		document.getElementById('cicloModal').addEventListener('click', function (event) {
+			if (event.target === this) {
+				closeCicloModal();
+			}
+		});
+	</script>
+
+	<!-- Modal Matéria-Prima Script -->
+	<script>
+		let currentMPSlide = 1;
+		const totalMPSlides = 9;
+
+		function openMateriaPrimaModal() {
+			document.getElementById('materiaPrimaModal').classList.add('active');
+			document.body.style.overflow = 'hidden'; // Previne scroll do fundo
+			document.body.classList.add('modal-open'); // Oculta menu
+			updateMPSlideDisplay();
+		}
+
+		function closeMateriaPrimaModal() {
+			document.getElementById('materiaPrimaModal').classList.remove('active');
+			document.body.style.overflow = 'auto'; // Restaura scroll
+			document.body.classList.remove('modal-open'); // Mostra menu
+			currentMPSlide = 1; // Reset para o primeiro slide
+			updateMPSlideDisplay();
+		}
+
+		function changeMPSlide(direction) {
+			const newSlide = currentMPSlide + direction;
+			if (newSlide >= 1 && newSlide <= totalMPSlides) {
+				// Esconder slide atual
+				document.getElementById(`mp-slide-${currentMPSlide}`).classList.remove('active');
+
+				// Mostrar novo slide
+				currentMPSlide = newSlide;
+				document.getElementById(`mp-slide-${currentMPSlide}`).classList.add('active');
+
+				updateMPSlideDisplay();
+			}
+		}
+
+		function updateMPSlideDisplay() {
+			const prevBtn = document.getElementById('mpPrevBtn');
+			const nextBtn = document.getElementById('mpNextBtn');
+
+			// Controlar visibilidade dos botões
+			prevBtn.disabled = currentMPSlide === 1;
+			nextBtn.disabled = currentMPSlide === totalMPSlides;
+
+			if (currentMPSlide === totalMPSlides) {
+				nextBtn.innerHTML = '✓';
+				nextBtn.onclick = closeMateriaPrimaModal;
+			} else {
+				nextBtn.innerHTML = '›';
+				nextBtn.onclick = () => changeMPSlide(1);
+			}
+		}
+
+		// Navegação por teclado
+		document.addEventListener('keydown', function (event) {
+			if (document.getElementById('materiaPrimaModal').classList.contains('active')) {
+				if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+					changeMPSlide(-1);
+				} else if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+					changeMPSlide(1);
+				} else if (event.key === 'Escape') {
+					closeMateriaPrimaModal();
+				}
+			}
+		});
+
+		// Fechar modal clicando no overlay
+		document.getElementById('materiaPrimaModal').addEventListener('click', function (event) {
+			if (event.target === this) {
+				closeMateriaPrimaModal();
+			}
+		});
+	</script>
+
+	<!-- Modal Impactos Script -->
+	<script>
+		let currentImpSlide = 1;
+		const totalImpSlides = 6;
+
+		function openImpactosModal() {
+			document.getElementById('impactosModal').classList.add('active');
+			document.body.style.overflow = 'hidden';
+			updateImpSlideDisplay();
+		}
+
+		function closeImpactosModal() {
+			document.getElementById('impactosModal').classList.remove('active');
+			document.body.style.overflow = 'auto';
+			currentImpSlide = 1;
+			updateImpSlideDisplay();
+		}
+
+		function changeImpSlide(direction) {
+			const newSlide = currentImpSlide + direction;
+			if (newSlide >= 1 && newSlide <= totalImpSlides) {
+				document.getElementById(`imp-slide-${currentImpSlide}`).classList.remove('active');
+				currentImpSlide = newSlide;
+				document.getElementById(`imp-slide-${currentImpSlide}`).classList.add('active');
+				updateImpSlideDisplay();
+			}
+		}
+
+		function updateImpSlideDisplay() {
+			const prevBtn = document.getElementById('impPrevBtn');
+			const nextBtn = document.getElementById('impNextBtn');
+			prevBtn.disabled = currentImpSlide === 1;
+			nextBtn.disabled = currentImpSlide === totalImpSlides;
+
+			if (currentImpSlide === totalImpSlides) {
+				nextBtn.innerHTML = '✓';
+				nextBtn.onclick = closeImpactosModal;
+			} else {
+				nextBtn.innerHTML = '›';
+				nextBtn.onclick = () => changeImpSlide(1);
+			}
+		}
+
+		document.addEventListener('keydown', function (event) {
+			if (document.getElementById('impactosModal').classList.contains('active')) {
+				if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+					changeImpSlide(-1);
+				} else if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+					changeImpSlide(1);
+				} else if (event.key === 'Escape') {
+					closeImpactosModal();
+				}
+			}
+		});
+
+		document.getElementById('impactosModal').addEventListener('click', function (event) {
+			if (event.target === this) {
+				closeImpactosModal();
+			}
+		});
+	</script>
+
+	<!-- Modal Boas Práticas Script -->
+	<script>
+		let currentBPSlide = 1;
+		const totalBPSlides = 7;
+
+		function openBoasPraticasModal() {
+			document.getElementById('boasPraticasModal').classList.add('active');
+			document.body.style.overflow = 'hidden';
+			document.body.classList.add('modal-open'); // Oculta menu
+			updateBPSlideDisplay();
+		}
+
+		function closeBoasPraticasModal() {
+			document.getElementById('boasPraticasModal').classList.remove('active');
+			document.body.style.overflow = 'auto';
+			document.body.classList.remove('modal-open'); // Mostra menu
+			currentBPSlide = 1;
+			updateBPSlideDisplay();
+		}
+
+		function changeBPSlide(direction) {
+			const newSlide = currentBPSlide + direction;
+			if (newSlide >= 1 && newSlide <= totalBPSlides) {
+				document.getElementById(`bp-slide-${currentBPSlide}`).classList.remove('active');
+				currentBPSlide = newSlide;
+				document.getElementById(`bp-slide-${currentBPSlide}`).classList.add('active');
+				updateBPSlideDisplay();
+			}
+		}
+
+		function updateBPSlideDisplay() {
+			const prevBtn = document.getElementById('bpPrevBtn');
+			const nextBtn = document.getElementById('bpNextBtn');
+			prevBtn.disabled = currentBPSlide === 1;
+			nextBtn.disabled = currentBPSlide === totalBPSlides;
+
+			if (currentBPSlide === totalBPSlides) {
+				nextBtn.innerHTML = '✓';
+				nextBtn.onclick = closeBoasPraticasModal;
+			} else {
+				nextBtn.innerHTML = '›';
+				nextBtn.onclick = () => changeBPSlide(1);
+			}
+		}
+
+		document.addEventListener('keydown', function (event) {
+			if (document.getElementById('boasPraticasModal').classList.contains('active')) {
+				if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+					changeBPSlide(-1);
+				} else if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+					changeBPSlide(1);
+				} else if (event.key === 'Escape') {
+					closeBoasPraticasModal();
+				}
+			}
+		});
+
+		document.getElementById('boasPraticasModal').addEventListener('click', function (event) {
+			if (event.target === this) {
+				closeBoasPraticasModal();
+			}
+		});
+	</script>
+
+	<!-- Modal Engenharia Script -->
+	<script>
+		let currentEngSlide = 1;
+		const totalEngSlides = 8;
+
+		function openEngenhariaModal() {
+			document.getElementById('engenhariaModal').classList.add('active');
+			document.body.style.overflow = 'hidden';
+			document.body.classList.add('modal-open'); // Oculta menu
+			updateEngSlideDisplay();
+		}
+
+		function closeEngenhariaModal() {
+			document.getElementById('engenhariaModal').classList.remove('active');
+			document.body.style.overflow = 'auto';
+			document.body.classList.remove('modal-open'); // Mostra menu
+			currentEngSlide = 1;
+			updateEngSlideDisplay();
+		}
+
+		function changeEngSlide(direction) {
+			const newSlide = currentEngSlide + direction;
+			if (newSlide >= 1 && newSlide <= totalEngSlides) {
+				document.getElementById(`eng-slide-${currentEngSlide}`).classList.remove('active');
+				currentEngSlide = newSlide;
+				document.getElementById(`eng-slide-${currentEngSlide}`).classList.add('active');
+				updateEngSlideDisplay();
+			}
+		}
+
+		function updateEngSlideDisplay() {
+			const prevBtn = document.getElementById('engPrevBtn');
+			const nextBtn = document.getElementById('engNextBtn');
+			prevBtn.disabled = currentEngSlide === 1;
+			nextBtn.disabled = currentEngSlide === totalEngSlides;
+
+			if (currentEngSlide === totalEngSlides) {
+				nextBtn.innerHTML = '✓';
+				nextBtn.onclick = closeEngenhariaModal;
+			} else {
+				nextBtn.innerHTML = '›';
+				nextBtn.onclick = () => changeEngSlide(1);
+			}
+		}
+
+		document.addEventListener('keydown', function (event) {
+			if (document.getElementById('engenhariaModal').classList.contains('active')) {
+				if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+					changeEngSlide(-1);
+				} else if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+					changeEngSlide(1);
+				} else if (event.key === 'Escape') {
+					closeEngenhariaModal();
+				}
+			}
+		});
+
+		document.getElementById('engenhariaModal').addEventListener('click', function (event) {
+			if (event.target === this) {
+				closeEngenhariaModal();
+			}
+		});
+	</script>
 
 </body>
 
